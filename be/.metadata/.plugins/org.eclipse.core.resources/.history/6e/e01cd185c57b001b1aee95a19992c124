@@ -1,0 +1,33 @@
+package com.example.demo.cmm.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.cmm.service.AbstractService;
+
+import lombok.RequiredArgsConstructor;
+
+
+@RestController @RequiredArgsConstructor
+public abstract class AbstractController<T> {
+	public abstract T save(T t);
+	public abstract void delete(T t);
+	public abstract int count();
+	public abstract List<T> findAll();
+	public abstract T getOne(int id);
+	public abstract Optional<T> findById(int id);
+	public abstract boolean existsById(int id);
+}
+
+/*
+public abstract T save(T t);
+public abstract void delete(T t);
+public abstract int count();
+public abstract List<T> findAll();
+public abstract T getOne(int id);
+public abstract Optional<T> findById(int id);
+public abstract boolean existsById(int id); */

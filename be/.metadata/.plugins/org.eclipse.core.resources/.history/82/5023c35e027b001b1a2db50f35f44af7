@@ -1,0 +1,48 @@
+package com.example.demo.cmm.utl;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
+import org.junit.Test;
+
+public class CrawlerBySele extends Proxy {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	public Vector<ReviewDTO>  crawling(String url2){
+    	String url = "https://tickets.interpark.com/goods/20009147";
+        logger.info("크롤링 대상 URL : "+url);
+        try{
+            Document rawData = Jsoup.connect(url).timeout(10 * 1000).get();
+            Elements titles = rawData.select("div[class=bbsTitleText]");
+            Elements contents = rawData.select("p[class=bbsText]");
+            Elements scores = rawData.select("div[class=prdStarIcon]");
+            ReviewDTO review = null;
+            logger.info(" titles.size() " + titles.size());
+            logger.info(" contents.size() " + contents.size());
+            for(int i=0; i< titles.size(); i++){
+            	review = new ReviewDTO();
+            	review.setReviewTitle(titles.get(i).text());
+            	review.setReviewContent(contents.get(i).text());
+            	review.setScore(scores.get(i).text());
+            	logger.info("크롤링된 게시글 "+ i+"번 : " +review.toString());
+            	// revBag.add(review);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static void main(String[] args) throws InterruptedException{
+        // Optional. If not specified, WebDriver searches the PATH for chromedriver.
+        System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://www.google.com/");
+        Thread.sleep(5000);  // Let the user actually see something!
+        WebElement searchBox = driver.findElement(By.name("q"));
+        searchBox.sendKeys("ChromeDriver");
+        searchBox.submit();
+        Thread.sleep(5000);  // Let the user actually see something!
+        driver.quit();
+	}
+}
+  
