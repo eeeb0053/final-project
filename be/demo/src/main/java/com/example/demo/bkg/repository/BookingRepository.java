@@ -7,5 +7,5 @@ interface IBookingRepository{
 	
 }
 public interface BookingRepository extends JpaRepository<Booking, Integer>, IBookingRepository{
-    public void update(Booking booking);
+	
 }

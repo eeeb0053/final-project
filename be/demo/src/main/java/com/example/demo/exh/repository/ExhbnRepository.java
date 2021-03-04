@@ -8,5 +8,5 @@ interface IExhbnRepository{
 	
 }
 public interface ExhbnRepository extends JpaRepository<Exhbn, Integer>, IExhbnRepository {
-    public void update(Exhbn exhbn);
+
 }

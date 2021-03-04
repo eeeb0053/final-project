@@ -4,6 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.uss.domain.User;
 import com.example.demo.uss.service.UserServiceImpl;
@@ -14,39 +20,39 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-@RestController
+ 
+@RestController @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/users") @RequiredArgsConstructor
 public class UserController extends AbstractController<User>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final UserServiceImpl service;
 	
-	@Override
-	public ResponseEntity<Integer> save(User t) {
+	@PostMapping("/save")
+	public ResponseEntity<Integer> save(@RequestBody User t) {
 		return ResponseEntity.ok(service.save(t));
 	}
-	@Override
-	public ResponseEntity<Integer> delete(User t) {
+	@DeleteMapping("/delete")
+	public ResponseEntity<Integer> delete(@RequestBody User t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
-	@Override
+	@GetMapping("/count")
 	public ResponseEntity<Integer> count() {
 		return ResponseEntity.ok(service.count());
 	}
-	@Override
+	@GetMapping("/all")
 	public ResponseEntity<List<User>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}
-	@Override
-	public ResponseEntity<User> getOne(int id) {
+	@GetMapping("/one/{id}")
+	public ResponseEntity<User> getOne(@PathVariable int id) {
 		return ResponseEntity.ok(service.getOne(id));
 	}
-	@Override
-	public ResponseEntity<Optional<User>> findById(int id) {
+	@GetMapping("/find/{id}")
+	public ResponseEntity<Optional<User>> findById(@PathVariable int id) {
 		return ResponseEntity.ok(service.findById(id));
 	}
-	@Override
-	public ResponseEntity<Boolean> existsById(int id) {
+	@GetMapping("/exists/{id}")
+	public ResponseEntity<Boolean> existsById(@PathVariable int id) {
 		return ResponseEntity.ok(service.existsById(id));
 	}
 }

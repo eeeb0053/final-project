@@ -8,13 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 import com.example.demo.exh.domain.Exhbn;
 import com.example.demo.uss.domain.User;
 
 import lombok.Getter;
 
-@Entity @Getter
+@Entity @Getter 
 public class Booking {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO) 
 	@Column(name = "book_num") private int bookNum;

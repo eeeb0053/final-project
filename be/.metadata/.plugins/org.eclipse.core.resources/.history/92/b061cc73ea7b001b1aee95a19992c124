@@ -1,0 +1,28 @@
+package com.example.demo.hal.repository;
+
+import com.example.demo.hal.domain.Hall;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class HallRepositoryImpl extends QuerydslRepositorySupport implements IHallRepository{
+	private final JPAQueryFactory qf;
+	private final EntityManager em;
+	public HallRepositoryImpl(JPAQueryFactory qf, EntityManager em) {
+		super(Hall.class);
+		this.qf = qf;
+		this.em = em;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Hall> findByName(String name) {
+		return em.createNamedQuery("Hall.findByName").setParameter("hallName", name)
+													.getResultList();
+	}
+}
