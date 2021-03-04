@@ -23,5 +23,8 @@ public class HallServiceImpl extends AbstractService<Hall> implements HallServic
 	@Override public Hall getOne(int id) { return repo.getOne(id);}
 	@Override public Optional<Hall> findById(int id){ return repo.findById(id);}
 	@Override public boolean existsById(int id) { return repo.existsById(id);}
-	@Override public List<Hall> findByNameAndLocation(String name, String location) { return repo.findByNameAndLocation(name, location);}
+	@Override public List<Hall> findByHallNameAndHallLocation(String name, String location) { 
+		return repo.findByHallNameAndHallLocation(name, location);}
+	@Override public List<Hall> findByHallLocation(String location) { return repo.findByHallLocation(location);}
+	@Override public int update(String hallClosed, int hallNum) { return repo.update(hallClosed, hallNum);}
 }

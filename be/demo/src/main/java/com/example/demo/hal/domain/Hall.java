@@ -10,14 +10,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.example.demo.exh.domain.Exhbn;
 
 import lombok.Getter;
 
-@Entity @Getter 
+@Entity @Getter @Table(name = "halls")
 public class Hall {
-	@Id @Column(name = "hall_num") private int hallNum;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "hall_num") private int hallNum;
     @Column(name = "hall_name") private String hallName;
     @Column(name = "hall_location") private String hallLocation;
     @Column(name = "hall_time") private String hallTime;

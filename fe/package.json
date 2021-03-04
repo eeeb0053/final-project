@@ -1,12 +1,15 @@
 {
-	"name": "hotel",
+	"name": "fe",
 	"version": "2.1.0",
 	"dependencies": {
 		"@glidejs/glide": "^3.4.1",
+		"@material-ui/styles": "^4.11.3",
 		"@styled-system/theme-get": "^5.1.2",
 		"antd": "^4.2.2",
+		"axios": "^0.21.1",
 		"dayjs": "^1.10.4",
 		"history": "^5.0.0",
+		"http-proxy-middleware": "^1.0.6",
 		"js-cookie": "^2.2.1",
 		"little-state-machine": "^3.0.2",
 		"lodash": "^4.17.20",
@@ -31,7 +34,8 @@
 		"react-waypoint": "^9.0.3",
 		"recompose": "^0.30.0",
 		"styled-components": "^5.2.1",
-		"styled-system": "^5.1.5"
+		"styled-system": "^5.1.5",
+		"yarn": "^1.22.10"
 	},
 	"scripts": {
 		"start": "react-app-rewired start",
@@ -55,5 +59,7 @@
 		"babel-plugin-import": "^1.13.0",
 		"customize-cra": "^1.0.0",
 		"react-app-rewired": "^2.1.8"
-	}
+	},
+	"proxy": "http://localhost:8080"
 }
+	

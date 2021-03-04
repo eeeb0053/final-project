@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.example.demo.exh.domain.Exhbn;
 import com.example.demo.rec.domain.Recommend;
@@ -18,9 +19,9 @@ import com.example.demo.uss.domain.User;
 
 import lombok.Getter;
 
-@Entity @Getter
+@Entity @Getter @Table(name = "analysis")
 public class Analysis {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)  
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "anal_num") private int analNum;
 	
 	@ManyToOne

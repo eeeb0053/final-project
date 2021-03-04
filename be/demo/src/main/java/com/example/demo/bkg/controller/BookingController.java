@@ -56,5 +56,9 @@ public class BookingController extends AbstractController<Booking>{
 	public ResponseEntity<Boolean> existsById(@PathVariable int id) {
 		return ResponseEntity.ok(service.existsById(id));
 	}
+	@GetMapping("/find/{bookNum}")
+	public ResponseEntity<List<Booking>> findByBookNum(int bookNum){
+		return ResponseEntity.ok(service.findByBookNum(bookNum));
+	}
   
 }

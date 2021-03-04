@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.example.demo.anl.domain.Analysis;
 import com.example.demo.bkg.domain.Booking;
@@ -20,9 +21,10 @@ import com.example.demo.rev.domain.Review;
 import lombok.Getter;
 
 
-@Entity @Getter
+@Entity @Getter @Table(name = "exhbns")
 public class Exhbn {
-	@Id @Column(name = "exhbn_num") private int exhbnNum;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "exhbn_num") private int exhbnNum;
 	@Column(name = "exhbn_title") private String exhbnTitle;
 	@Column(name = "start_date") private String startDate;
 	@Column(name = "end_date") private String endDate;

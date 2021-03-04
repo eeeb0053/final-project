@@ -1,0 +1,6 @@
+package com.example.demo.bkg.service;
+
+
+public interface BookingService {
+	public int update(String bookName, String bookEmail, String bookPnumber, int bookNum);
+}

@@ -9,15 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 import com.example.demo.exh.domain.Exhbn;
 import com.example.demo.uss.domain.User;
 
 import lombok.Getter;
 
-@Entity @Getter 
+@Entity @Getter @Table(name = "bookings")
 public class Booking {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO) 
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name = "book_num") private int bookNum;
 	@Column(name = "book_date") private String bookDate;
 	@Column(name = "total_price") private String totalPrice;

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.example.demo.anl.domain.Analysis;
 import com.example.demo.bkg.domain.Booking;
@@ -17,9 +18,9 @@ import com.example.demo.rev.domain.Review;
 import lombok.Getter;
 
 
-@Entity @Getter
+@Entity @Getter @Table(name = "users")
 public class User {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)  
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_num") private int userNum;
 	@Column private String userid;
 	@Column private String password;

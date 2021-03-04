@@ -7,15 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.example.demo.exh.domain.Exhbn;
 import com.example.demo.uss.domain.User;
 
 import lombok.Getter;
 
-@Entity @Getter
+@Entity @Getter @Table(name = "reviews")
 public class Review {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)  
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "review_num") private int reviewNum;
 	@Column(name = "review_title") private String reviewTitle;
 	@Column(name = "review_content") private String reviewContent;

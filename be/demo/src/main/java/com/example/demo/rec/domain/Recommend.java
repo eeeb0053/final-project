@@ -7,14 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.example.demo.anl.domain.Analysis;
 
 import lombok.Getter;
 
-@Entity @Getter
+@Entity @Getter @Table(name = "recommends")
 public class Recommend {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)  
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "rec_num") private int recNum;
 	
 	@ManyToOne

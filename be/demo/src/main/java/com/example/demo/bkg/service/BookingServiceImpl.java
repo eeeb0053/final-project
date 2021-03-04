@@ -21,4 +21,7 @@ public class BookingServiceImpl extends AbstractService<Booking> implements Book
 	@Override public Booking getOne(int id) { return repo.getOne(id);}
 	@Override public Optional<Booking> findById(int id){ return repo.findById(id);}
 	@Override public boolean existsById(int id) { return repo.existsById(id);}
+	@Override public int update(String bookName, String bookEmail, String bookPnumber, int bookNum) { 
+		return repo.update(bookName, bookEmail, bookPnumber, bookNum);}
+	@Override public List<Booking> findByBookNum(int bookNum) { return repo.findByBookNum(bookNum);}
 }
