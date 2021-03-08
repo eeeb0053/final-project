@@ -35,12 +35,11 @@ const SearchArea = ({ searchTitleStyle, searchDescriptionStyle }) => {
         <SearchWrapper>
           <Heading
             {...searchTitleStyle}
-            content="Latest reviews. Lowest prices."
+            content="Seoul Museum of Art : SeMA"
           />
           <Text
             {...searchDescriptionStyle}
-            content="compares prices from 200+ booking sites to help you find the lowest
-          price on the right hotel for you."
+            content="회화부터 영상까지, 서울시립미술관(SeMA)의 다양한 전시들을 검색해보세요!"
           />
           <SearchForm />
         </SearchWrapper>

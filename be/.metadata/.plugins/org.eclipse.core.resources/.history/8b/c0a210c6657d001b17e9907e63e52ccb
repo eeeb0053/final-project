@@ -29,12 +29,6 @@ public class UserController extends AbstractController<User>{
 	
 	@PostMapping("/save")
 	public ResponseEntity<Integer> save(@RequestBody User t) {
-		logger.info("회원 가입정보"+t.toString());
-		return ResponseEntity.ok(service.save(t));
-	}
-	@PostMapping("/login")
-	public ResponseEntity<Integer> login(@RequestBody User t) {
-		logger.info("회원 로그인정보"+t.toString());
 		return ResponseEntity.ok(service.save(t));
 	}
 	@DeleteMapping("/delete")
