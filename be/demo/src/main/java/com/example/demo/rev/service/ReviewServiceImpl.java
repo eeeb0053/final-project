@@ -14,11 +14,11 @@ import com.example.demo.cmm.service.AbstractService;
 public class ReviewServiceImpl extends AbstractService<Review> implements ReviewService{
 	private final ReviewRepository repo;
 	
-	@Override public int save(Review r) { return (repo.save(r) != null) ? 1 : 0;}
-	@Override public int delete(Review r) { repo.delete(r); return (getOne(r.getReviewNum()) == null) ? 1 : 0;}
-	@Override public int count() { return (int)repo.count();}
+	@Override public long save(Review r) { return (repo.save(r) != null) ? 1 : 0;}
+	@Override public long delete(Review r) { repo.delete(r); return (getOne(r.getReviewNum()) == null) ? 1 : 0;}
+	@Override public long count() { return (long)repo.count();}
 	@Override public List<Review> findAll() { return repo.findAll();}
-	@Override public Review getOne(int id) { return repo.getOne(id);}
-	@Override public Optional<Review> findById(int id){ return repo.findById(id);}
-	@Override public boolean existsById(int id) { return repo.existsById(id);}
+	@Override public Review getOne(long id) { return repo.getOne(id);}
+	@Override public Optional<Review> findById(long id){ return repo.findById(id);}
+	@Override public boolean existsById(long id) { return repo.existsById(id);}
 }

@@ -7,10 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.rev.domain.Review;
 import com.example.demo.rev.domain.ReviewDTO;
 
-interface IReviewRepository{
-	public List<ReviewDTO> findByUserNum(int UserNum);
+interface ReviewCustomRepository{
+	public List<ReviewDTO> findByUserNum(long UserNum);
 }
 
-public interface ReviewRepository extends JpaRepository<Review, Integer>, IReviewRepository {
+public interface ReviewRepository extends JpaRepository<Review, Long>, ReviewCustomRepository {
 	
 }

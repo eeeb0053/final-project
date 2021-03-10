@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.bkg.domain.Booking;
 
 @Repository
-public class BookingRepositoryImpl extends QuerydslRepositorySupport implements IBookingRepository{
+public class BookingRepositoryImpl extends QuerydslRepositorySupport implements BookingCustomRepository{
 	//private final JPAQueryFactory qf;
 	private final EntityManager em;
 	public BookingRepositoryImpl(EntityManager em) {
@@ -20,7 +20,7 @@ public class BookingRepositoryImpl extends QuerydslRepositorySupport implements 
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Booking> findByBookNum(int bookNum) {
+	public List<Booking> findByBookNum(long bookNum) {
 		return em.createQuery("select b from booking b where b.book_num like :bookNum")
 				.setParameter("bookNum", bookNum).getResultList();
 	}

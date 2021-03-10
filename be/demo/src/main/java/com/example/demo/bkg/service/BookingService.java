@@ -5,6 +5,6 @@ import java.util.List;
 import com.example.demo.bkg.domain.Booking;
 
 public interface BookingService {
-	public int update(String bookName, String bookEmail, String bookPnumber, int bookNum);
-	public List<Booking> findByBookNum(int bookNum);
+	public long update(String bookName, String bookEmail, String bookPnumber, long bookNum);
+	public List<Booking> findByBookNum(long bookNum);
 }

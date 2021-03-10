@@ -27,15 +27,15 @@ public class ExhbnController extends AbstractController<Exhbn>{
 	final ExhbnServiceImpl service;
 	
 	@PostMapping("/save")
-	public ResponseEntity<Integer> save(@RequestBody Exhbn t) {
+	public ResponseEntity<Long> save(@RequestBody Exhbn t) {
 		return ResponseEntity.ok(service.save(t));
 	}
 	@DeleteMapping("/delete")
-	public ResponseEntity<Integer> delete(@RequestBody Exhbn t) {
+	public ResponseEntity<Long> delete(@RequestBody Exhbn t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
 	@GetMapping("/count")
-	public ResponseEntity<Integer> count() {
+	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
 	@GetMapping("/all")
@@ -43,15 +43,15 @@ public class ExhbnController extends AbstractController<Exhbn>{
 		return ResponseEntity.ok(service.findAll());
 	}
 	@GetMapping("/one/{id}")
-	public ResponseEntity<Exhbn> getOne(@PathVariable int id) {
+	public ResponseEntity<Exhbn> getOne(@PathVariable long id) {
 		return ResponseEntity.ok(service.getOne(id));
 	}
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Optional<Exhbn>> findById(@PathVariable int id) {
+	public ResponseEntity<Optional<Exhbn>> findById(@PathVariable long id) {
 		return ResponseEntity.ok(service.findById(id));
 	}
 	@GetMapping("/exists/{id}")
-	public ResponseEntity<Boolean> existsById(@PathVariable int id) {
+	public ResponseEntity<Boolean> existsById(@PathVariable long id) {
 		return ResponseEntity.ok(service.existsById(id));
 	}
 }

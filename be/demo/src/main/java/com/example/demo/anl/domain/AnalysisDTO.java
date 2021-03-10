@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 
 @Component @Data @Lazy
 public class AnalysisDTO {
-	private int analNum;
-	private int exhbnNum;
-	private int userNum;
+	private long analNum;
+	private long exhbnNum;
+	private long userNum;
 }
 /*
 create table shows(

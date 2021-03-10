@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class HallRepositoryImpl extends QuerydslRepositorySupport implements IHallRepository{
+public class HallRepositoryImpl extends QuerydslRepositorySupport implements HallCustomRepository{
 	//private final JPAQueryFactory qf;
 	private final EntityManager em;
 	public HallRepositoryImpl(EntityManager em) {

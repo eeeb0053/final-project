@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.uss.domain.User;
 
 @Repository
-public class UserRepositoryImpl extends QuerydslRepositorySupport implements IUserRepository{
+public class UserRepositoryImpl extends QuerydslRepositorySupport implements UserCustomRepository{
 	//private final JPAQueryFactory qf;
 	public UserRepositoryImpl() {
 		super(User.class);

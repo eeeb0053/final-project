@@ -15,11 +15,11 @@ import org.springframework.stereotype.Service;
 public class ExhbnServiceImpl extends AbstractService<Exhbn> implements ExhbnService{
 	private final ExhbnRepository repo;
 	
-	@Override public int save(Exhbn h) { return (repo.save(h) != null) ? 1 : 0;}
-	@Override public int delete(Exhbn h) { repo.delete(h); return (getOne(h.getExhbnNum()) == null) ? 1 : 0;}
-	@Override public int count() { return (int)repo.count();}
+	@Override public long save(Exhbn h) { return (repo.save(h) != null) ? 1 : 0;}
+	@Override public long delete(Exhbn h) { repo.delete(h); return (getOne(h.getExhbnNum()) == null) ? 1 : 0;}
+	@Override public long count() { return (long)repo.count();}
 	@Override public List<Exhbn> findAll() { return repo.findAll();}
-	@Override public Exhbn getOne(int id) { return repo.getOne(id);}
-	@Override public Optional<Exhbn> findById(int id){ return repo.findById(id);}
-	@Override public boolean existsById(int id) { return repo.existsById(id);}
+	@Override public Exhbn getOne(long id) { return repo.getOne(id);}
+	@Override public Optional<Exhbn> findById(long id){ return repo.findById(id);}
+	@Override public boolean existsById(long id) { return repo.existsById(id);}
 }

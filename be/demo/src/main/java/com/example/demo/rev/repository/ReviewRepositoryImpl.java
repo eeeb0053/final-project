@@ -11,7 +11,7 @@ import com.example.demo.rev.domain.Review;
 import com.example.demo.rev.domain.ReviewDTO;
 
 @Repository
-public class ReviewRepositoryImpl extends QuerydslRepositorySupport implements IReviewRepository{
+public class ReviewRepositoryImpl extends QuerydslRepositorySupport implements ReviewCustomRepository{
 	//private final JPAQueryFactory qf;
 	private final EntityManager em;
 	public ReviewRepositoryImpl(EntityManager em) {
@@ -21,7 +21,7 @@ public class ReviewRepositoryImpl extends QuerydslRepositorySupport implements I
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<ReviewDTO> findByUserNum(int userNum) {
+	public List<ReviewDTO> findByUserNum(long userNum) {
 		return em.createQuery("select "
 				+ "r.review_num reviewNum  "
 				+ "r.review_title reviewTitle "

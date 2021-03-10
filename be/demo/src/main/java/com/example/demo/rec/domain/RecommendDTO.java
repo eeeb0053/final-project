@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 
 @Component @Data @Lazy
 public class RecommendDTO {
-	private int recNum;
-	private int exhbnNum;
-	private int userNum;
+	private long recNum;
+	private long exhbnNum;
+	private long userNum;
 }
 /*
 create table shows(
-   show_num int primary key auto_increment,
+   show_num long primary key auto_increment,
    title varchar(30),
    period varchar(30),
    time varchar(20),

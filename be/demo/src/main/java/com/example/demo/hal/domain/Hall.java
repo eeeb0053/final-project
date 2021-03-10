@@ -19,7 +19,7 @@ import lombok.Getter;
 @Entity @Getter @Table(name = "halls")
 public class Hall {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "hall_num") private int hallNum;
+	@Column(name = "hall_num") private long hallNum;
     @Column(name = "hall_name") private String hallName;
     @Column(name = "hall_location") private String hallLocation;
     @Column(name = "hall_time") private String hallTime;

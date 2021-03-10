@@ -1,0 +1,11 @@
+package com.example.demo.sec.domain;
+
+public interface AuthToken {
+    String getToken();
+}
+ 
+@Builder
+@Getter
+public class JwtAuthenticationToken implements AuthenticationToken {
+    private String token;
+}

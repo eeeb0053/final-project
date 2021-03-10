@@ -31,7 +31,7 @@ const Listing = ({ location, history }) => {
   const handleMapToggle = () => {
     setShowMap((showMap) => !showMap);
   };
-  const URL = '/exhbns/all'
+  const URL = 'http://localhost:8080/exhbns/all'
   useEffect(() => {
     axios.get(URL, )
     .then((resp) => {

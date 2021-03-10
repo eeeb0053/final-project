@@ -28,15 +28,15 @@ public class HallController extends AbstractController<Hall>{
 	final HallServiceImpl service;
 	
 	@PostMapping("/save")
-	public ResponseEntity<Integer> save(@RequestBody Hall t) {
+	public ResponseEntity<Long> save(@RequestBody Hall t) {
 		return ResponseEntity.ok(service.save(t));
 	}
 	@DeleteMapping("/delete")
-	public ResponseEntity<Integer> delete(@RequestBody Hall t) {
+	public ResponseEntity<Long> delete(@RequestBody Hall t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
 	@GetMapping("/count")
-	public ResponseEntity<Integer> count() {
+	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
 	@GetMapping("/all")
@@ -44,15 +44,15 @@ public class HallController extends AbstractController<Hall>{
 		return ResponseEntity.ok(service.findAll());
 	}
 	@GetMapping("/one/{id}")
-	public ResponseEntity<Hall> getOne(@PathVariable int id) {
+	public ResponseEntity<Hall> getOne(@PathVariable long id) {
 		return ResponseEntity.ok(service.getOne(id));
 	}
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Optional<Hall>> findById(@PathVariable int id) {
+	public ResponseEntity<Optional<Hall>> findById(@PathVariable long id) {
 		return ResponseEntity.ok(service.findById(id));
 	}
 	@GetMapping("/exists/{id}")
-	public ResponseEntity<Boolean> existsById(@PathVariable int id) {
+	public ResponseEntity<Boolean> existsById(@PathVariable long id) {
 		return ResponseEntity.ok(service.existsById(id));
 	}
 	@GetMapping("find/{name}/{location}")

@@ -4,9 +4,9 @@ import com.example.demo.exh.domain.Exhbn;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-interface IExhbnRepository{
+interface ExhbnCustomRepository{
 	
 }
-public interface ExhbnRepository extends JpaRepository<Exhbn, Integer>, IExhbnRepository {
+public interface ExhbnRepository extends JpaRepository<Exhbn, Long>, ExhbnCustomRepository {
 
 }

@@ -17,7 +17,7 @@ import lombok.Getter;
 @Entity @Getter @Table(name = "reviews")
 public class Review {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "review_num") private int reviewNum;
+	@Column(name = "review_num") private long reviewNum;
 	@Column(name = "review_title") private String reviewTitle;
 	@Column(name = "review_content") private String reviewContent;
 	@Column(name = "reg_date") private String regDate;

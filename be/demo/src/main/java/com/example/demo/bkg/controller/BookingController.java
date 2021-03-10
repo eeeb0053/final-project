@@ -29,15 +29,15 @@ public class BookingController extends AbstractController<Booking>{
 	final BookingServiceImpl service;
 	
 	@PostMapping("/save")
-	public ResponseEntity<Integer> save(@RequestBody Booking t) {
+	public ResponseEntity<Long> save(@RequestBody Booking t) {
 		return ResponseEntity.ok(service.save(t));
 	}
 	@DeleteMapping("/delete")
-	public ResponseEntity<Integer> delete(@RequestBody Booking t) {
+	public ResponseEntity<Long> delete(@RequestBody Booking t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
 	@GetMapping("/count")
-	public ResponseEntity<Integer> count() {
+	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
 	@GetMapping("/all")
@@ -45,19 +45,19 @@ public class BookingController extends AbstractController<Booking>{
 		return ResponseEntity.ok(service.findAll());
 	}
 	@GetMapping("/one/{id}")
-	public ResponseEntity<Booking> getOne(@PathVariable int id) {
+	public ResponseEntity<Booking> getOne(@PathVariable long id) {
 		return ResponseEntity.ok(service.getOne(id));
 	}
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Optional<Booking>> findById(@PathVariable int id) {
+	public ResponseEntity<Optional<Booking>> findById(@PathVariable long id) {
 		return ResponseEntity.ok(service.findById(id));
 	}
 	@GetMapping("/exists/{id}")
-	public ResponseEntity<Boolean> existsById(@PathVariable int id) {
+	public ResponseEntity<Boolean> existsById(@PathVariable long id) {
 		return ResponseEntity.ok(service.existsById(id));
 	}
 	@GetMapping("/find/{bookNum}")
-	public ResponseEntity<List<Booking>> findByBookNum(int bookNum){
+	public ResponseEntity<List<Booking>> findByBookNum(long bookNum){
 		return ResponseEntity.ok(service.findByBookNum(bookNum));
 	}
   

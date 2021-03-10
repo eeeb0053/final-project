@@ -24,7 +24,7 @@ import lombok.Getter;
 @Entity @Getter @Table(name = "exhbns")
 public class Exhbn {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "exhbn_num") private int exhbnNum;
+	@Column(name = "exhbn_num") private long exhbnNum;
 	@Column(name = "exhbn_title") private String exhbnTitle;
 	@Column(name = "start_date") private String startDate;
 	@Column(name = "end_date") private String endDate;

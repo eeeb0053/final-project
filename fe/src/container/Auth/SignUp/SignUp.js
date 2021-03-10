@@ -21,8 +21,8 @@ const SignUp = () => {
         <Logo
           withLink
           linkTo="/"
-          src="/images/logo-alt.svg"
-          title="TripFinder."
+          src="/images/cartlogo.png"
+          title=""
         />
         <Title>Welcome To TripFinder</Title>
         <TitleInfo>Please Register for your account</TitleInfo>

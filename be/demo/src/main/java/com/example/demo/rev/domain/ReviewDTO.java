@@ -8,9 +8,9 @@ import lombok.Data;
 
 @Component @Data @Lazy
 public class ReviewDTO {
-	private int reviewNum;
-	private int exhbnNum;
-	private int userNum;
+	private long reviewNum;
+	private long exhbnNum;
+	private long userNum;
 	private String reviewTitle;
 	private String reviewContent;
 	private String regDate;
@@ -18,7 +18,7 @@ public class ReviewDTO {
 }
 /*
 create table boards(
-   board_num int primary key auto_increment,
+   board_num long primary key auto_increment,
    title varchar(30),
    content varchar(300),
    date varchar(20),

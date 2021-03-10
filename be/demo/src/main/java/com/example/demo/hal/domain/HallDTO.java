@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Component @Data @Lazy
 public class HallDTO {
-	private int hallNum;
+	private long hallNum;
     private String hallName;
     private String hallLocation;
     private String hallTime;

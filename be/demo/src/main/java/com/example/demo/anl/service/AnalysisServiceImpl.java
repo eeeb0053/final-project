@@ -17,11 +17,11 @@ import com.example.demo.cmm.service.AbstractService;
 public class AnalysisServiceImpl extends AbstractService<Analysis> implements AnalysisService{
 	private final AnalysisRepository repo;
 	
-	@Override public int save(Analysis h) { return (repo.save(h) != null) ? 1 : 0;}
-	@Override public int delete(Analysis h) { repo.delete(h); return (getOne(h.getAnalNum()) == null) ? 1 : 0;}
-	@Override public int count() { return (int)repo.count();}
+	@Override public long save(Analysis h) { return (repo.save(h) != null) ? 1 : 0;}
+	@Override public long delete(Analysis h) { repo.delete(h); return (getOne(h.getAnalNum()) == null) ? 1 : 0;}
+	@Override public long count() { return (long)repo.count();}
 	@Override public List<Analysis> findAll() { return repo.findAll();}
-	@Override public Analysis getOne(int id) { return repo.getOne(id);}
-	@Override public Optional<Analysis> findById(int id){ return repo.findById(id);}
-	@Override public boolean existsById(int id) { return repo.existsById(id);}
+	@Override public Analysis getOne(long id) { return repo.getOne(id);}
+	@Override public Optional<Analysis> findById(long id){ return repo.findById(id);}
+	@Override public boolean existsById(long id) { return repo.existsById(id);}
 }

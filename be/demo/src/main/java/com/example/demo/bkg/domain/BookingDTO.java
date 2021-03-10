@@ -7,9 +7,9 @@ import lombok.Data;
 
 @Component @Data @Lazy
 public class BookingDTO {
-	private int bookNum;
-	private int exhbnNum;
-	private int userNum;
+	private long bookNum;
+	private long exhbnNum;
+	private long userNum;
 	private String bookDate;
 	private String totalPrice;
 	private String bookName;

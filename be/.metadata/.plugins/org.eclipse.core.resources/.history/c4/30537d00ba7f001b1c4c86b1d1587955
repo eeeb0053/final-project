@@ -1,0 +1,10 @@
+package com.example.demo.sec.util;
+
+public interface AuthToken {
+    String getToken();
+}
+public class CustomAuthToken implements AuthTKen{
+	public CustomAuthToken() {
+		// TODO Auto-generated constructor stub
+	}
+}

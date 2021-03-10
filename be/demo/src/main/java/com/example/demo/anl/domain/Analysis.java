@@ -22,7 +22,7 @@ import lombok.Getter;
 @Entity @Getter @Table(name = "analysis")
 public class Analysis {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "anal_num") private int analNum;
+	@Column(name = "anal_num") private long analNum;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_num")
