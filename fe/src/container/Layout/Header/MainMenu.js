@@ -14,11 +14,11 @@ const MainMenu = ({ className }) => {
     <Menu className={className}>
       <Menu.Item key="0">
         <NavLink exact to={`${HOME_PAGE}`}>
-          전시
+          Home
         </NavLink>
       </Menu.Item>
       <Menu.Item key="1">
-        <NavLink to={`${LISTING_POSTS_PAGE}`}>Listing</NavLink>
+        <NavLink to={`${LISTING_POSTS_PAGE}`}>Exhibition</NavLink>
       </Menu.Item>
       <Menu.Item key="2">
         <NavLink to={`${AGENT_PROFILE_PAGE}`}>Agent</NavLink>

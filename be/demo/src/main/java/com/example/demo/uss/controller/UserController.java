@@ -27,7 +27,7 @@ public class UserController extends AbstractController<User>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final UserServiceImpl service;
 	
-	@PostMapping("/save")
+	@PostMapping("/add")
 	public ResponseEntity<Long> save(@RequestBody User t) {
 		logger.info("회원 가입정보"+t.toString());
 		return ResponseEntity.ok(service.save(t));

@@ -1,6 +1,5 @@
 package com.example.demo.sec.domain;
 
-
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ErrorCode {

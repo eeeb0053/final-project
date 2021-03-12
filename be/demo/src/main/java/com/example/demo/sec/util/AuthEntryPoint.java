@@ -5,24 +5,21 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
+import com.example.demo.sec.domain.ErrorCode;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import com.example.demo.sec.domain.ErrorCode;
-
 @Component
 @Slf4j
 public class AuthEntryPoint implements AuthenticationEntryPoint{
-	
 	@Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         String exception = (String)request.getAttribute("exception");
         ErrorCode errorCode;
 
         log.debug("log: exception: {} ", exception);
-
 
         /**
          * 토큰 없는 경우
@@ -62,4 +59,5 @@ public class AuthEntryPoint implements AuthenticationEntryPoint{
                 + "\", \"status\" : " + errorCode.getStatus()
                 + ", \"errors\" : [ ] }");
     }
+
 }

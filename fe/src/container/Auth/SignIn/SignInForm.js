@@ -45,14 +45,6 @@ const SignInForm = () => {
     localStorage.removeItem("user");
   }
 
-  const register = (username, email, password) => {
-    return axios.post(API_URL + "signup", {
-      username,
-      email,
-      password
-    });
-  }
-
   const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem('user'));;
   }

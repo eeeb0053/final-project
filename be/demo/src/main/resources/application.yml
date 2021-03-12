@@ -13,7 +13,10 @@ spring:
         # properties:
         #    hibernate:
         #        format_sql: true
-      
-auth:  jwtExpirationMS: 600000
-  jwtSecret: JWTSuperSecretKey
-  
+         
+auth:
+  header: Authorization
+server:  port: 8080
+app:
+  jwtSecret: jwtsecretkey
+  jwtExpirationInMs: 604800000
