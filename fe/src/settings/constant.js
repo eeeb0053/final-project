@@ -5,6 +5,10 @@ export const AGENTS_PAGE = '/agents';
 // Listing Single Page Section
 export const LISTING_POSTS_PAGE = '/listing';
 export const SINGLE_POST_PAGE = '/post';
+export const BOOKING_PAGE = '/booking';
+export const BOOKING_LIST_PAGE = '/bookingList'
+export const BOOKING_DETAIL_PAGE = '/bookingDetail'
+export const EXHBN_DETAIL_PAGE = '/exhbns'
 
 // Agent Profile Page Section
 export const AGENT_PROFILE_PAGE = '/profile';

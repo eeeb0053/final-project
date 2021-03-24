@@ -15,6 +15,10 @@ import {
   AGENT_ACCOUNT_SETTINGS_PAGE,
   PRIVACY_PAGE,
   PRICING_PLAN_PAGE,
+  BOOKING_PAGE,
+  BOOKING_LIST_PAGE,
+  BOOKING_DETAIL_PAGE,
+  EXHBN_DETAIL_PAGE
 } from './settings/constant';
 
 /**
@@ -115,6 +119,46 @@ const routes = [
         import(/* webpackChunkName: "Pricing" */ './container/Pricing/Pricing'),
       loading: Loading,
       modules: ['Pricing'],
+    }),
+  },
+  {
+    path: BOOKING_PAGE,
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "Booking" */ './container/SinglePage/Reservation/Booking'),
+      loading: Loading,
+      modules: ['Booking'],
+    }),
+  },
+  {
+    path: BOOKING_LIST_PAGE,
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "BookingList" */ './container/SinglePage/Reservation/BookingList'),
+      loading: Loading,
+      modules: ['BookingList'],
+    }),
+  },
+  {
+    path: `${BOOKING_DETAIL_PAGE}/:bookNum`,
+    component: Loadable({
+      loader: () =>
+        import(
+          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/Reservation/BookingDetail'
+        ),
+      loading: Loading,
+      modules: ['BookingDetail'],
+    }),
+  },
+  {
+    path: `${EXHBN_DETAIL_PAGE}/:exhbnNum`,
+    component: Loadable({
+      loader: () =>
+        import(
+          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/SinglePageView'
+        ),
+      loading: Loading,
+      modules: ['ExbhnDetail'],
     }),
   },
 ];

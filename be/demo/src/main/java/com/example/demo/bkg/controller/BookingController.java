@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bkg.domain.Booking;
@@ -28,9 +30,17 @@ public class BookingController extends AbstractController<Booking>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final BookingServiceImpl service;
 	
-	@PostMapping("/save")
+	@PostMapping("/add")
 	public ResponseEntity<Long> save(@RequestBody Booking t) {
 		return ResponseEntity.ok(service.save(t));
+	}
+	@PutMapping("/update")
+	public ResponseEntity<Long> update(@RequestParam(value = "bookName", required = false) String bookName, 
+			@RequestParam(value = "bookEmail", required = false) String bookEmail, 
+			@RequestParam(value = "bookPnumber", required = false) String bookPnumber, 
+			@RequestParam(value = "bookNum", required = false) long bookNum) {
+		logger.info("수정 정보: "+ bookName + bookEmail + bookPnumber + bookNum);
+		return ResponseEntity.ok(service.update(bookName, bookEmail, bookPnumber, bookNum)); 
 	}
 	@DeleteMapping("/delete")
 	public ResponseEntity<Long> delete(@RequestBody Booking t) {

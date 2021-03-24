@@ -21,10 +21,11 @@ import com.example.demo.anl.domain.Analysis;
 import com.example.demo.bkg.domain.Booking;
 import com.example.demo.rev.domain.Review;
 
+import lombok.Data;
 import lombok.Getter;
 
 
-@Entity @Getter @Table(name = "users")
+@Entity @Data @Table(name = "users")
 public class User {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_num") private long userNum;
@@ -45,10 +46,5 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Review> reviewList = new ArrayList<>();
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name="user_roles", 
-				joinColumns = @JoinColumn(name = "user_num"),
-		inverseJoinColumns = @JoinColumn(name="role_num"))
-	private Set<Role> roles = new HashSet<>();
+
 }

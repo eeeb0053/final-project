@@ -12,12 +12,11 @@ const CardHeader = ({ priceStyle, pricePeriodStyle, linkStyle }) => {
       <Heading
         content={
           <Fragment>
-            $162 <Text as="span" content="/ night" {...pricePeriodStyle} />
+            7,000원 <Text as="span" content="/ 1매" {...pricePeriodStyle} />
           </Fragment>
         }
         {...priceStyle}
       />
-      <TextLink link="/#1" content="Contact Hotel" {...linkStyle} />
     </Fragment>
   );
 };
@@ -30,7 +29,6 @@ export default function Reservation() {
       content={<RenderReservationForm />}
       footer={
         <p>
-          Special offers available. <TextLink to="/#1" content="See details" />
         </p>
       }
     />

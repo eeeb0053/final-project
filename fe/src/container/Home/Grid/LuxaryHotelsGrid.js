@@ -10,10 +10,11 @@ import SectionTitle from 'components/SectionTitle/SectionTitle';
 import {
   LISTING_POSTS_PAGE,
   SINGLE_POST_PAGE,
+  EXHBN_DETAIL_PAGE
 } from '../../../settings/constant';
 
 const LuxaryHotelsGrid = () => {
-  const { data, loading } = useDataApi('/data/hotel.json');
+  const { data, loading } = useDataApi('http://localhost:8080/exhbns/all');
   const { width } = useWindowSize();
 
   let posts = data;
@@ -39,12 +40,12 @@ const LuxaryHotelsGrid = () => {
   return (
     <Container fluid={true}>
       <SectionTitle
-        title={<Heading content="Best Rated: Luxary hotels" />}
+        title={<Heading content="TOP10: 인기 전시" />}
         link={<TextLink link={LISTING_POSTS_PAGE} content="Show all" />}
       />
 
       <SectionGrid
-        link={SINGLE_POST_PAGE}
+        link={EXHBN_DETAIL_PAGE}
         columnWidth={[1 / 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5]}
         data={posts}
         loading={loading}

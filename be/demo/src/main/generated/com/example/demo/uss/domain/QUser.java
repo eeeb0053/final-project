@@ -16,8 +16,6 @@ import com.querydsl.core.types.dsl.PathInits;
 @Generated("com.querydsl.codegen.EntitySerializer")
 public class QUser extends EntityPathBase<User> {
 
-    private static final long serialVersionUID = 390411586L;
-
     public static final QUser user = new QUser("user");
 
     public final ListPath<com.example.demo.anl.domain.Analysis, com.example.demo.anl.domain.QAnalysis> analysisList = this.<com.example.demo.anl.domain.Analysis, com.example.demo.anl.domain.QAnalysis>createList("analysisList", com.example.demo.anl.domain.Analysis.class, com.example.demo.anl.domain.QAnalysis.class, PathInits.DIRECT2);
@@ -37,8 +35,6 @@ public class QUser extends EntityPathBase<User> {
     public final StringPath preferGenre = createString("preferGenre");
 
     public final ListPath<com.example.demo.rev.domain.Review, com.example.demo.rev.domain.QReview> reviewList = this.<com.example.demo.rev.domain.Review, com.example.demo.rev.domain.QReview>createList("reviewList", com.example.demo.rev.domain.Review.class, com.example.demo.rev.domain.QReview.class, PathInits.DIRECT2);
-
-    public final SetPath<Role, QRole> roles = this.<Role, QRole>createSet("roles", Role.class, QRole.class, PathInits.DIRECT2);
 
     public final StringPath userid = createString("userid");
 

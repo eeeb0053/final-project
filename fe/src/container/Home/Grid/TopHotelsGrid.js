@@ -7,9 +7,9 @@ import SectionGrid from 'components/SectionGrid/SectionGrid';
 import SectionTitle from 'components/SectionTitle/SectionTitle';
 import useWindowSize from 'library/hooks/useWindowSize';
 import useDataApi from 'library/hooks/useDataApi';
-import { LISTING_POSTS_PAGE, SINGLE_POST_PAGE } from 'settings/constant';
+import { LISTING_POSTS_PAGE, SINGLE_POST_PAGE, EXHBN_DETAIL_PAGE } from 'settings/constant';
 const TopHotelsGrid = () => {
-  const { data, loading } = useDataApi('/data/top-hotel.json');
+  const { data, loading } = useDataApi('http://localhost:8080/exhbns/all');
   const { width } = useWindowSize();
 
   let posts = data;
@@ -35,12 +35,12 @@ const TopHotelsGrid = () => {
   return (
     <Container fluid={true}>
       <SectionTitle
-        title={<Heading content="Travelers’ Choice: Top hotels" />}
+        title={<Heading content="취향저격: 추천 전시" />}
         link={<TextLink link={LISTING_POSTS_PAGE} content="Show all" />}
       />
 
       <SectionGrid
-        link={SINGLE_POST_PAGE}
+        link={EXHBN_DETAIL_PAGE}
         columnWidth={[1 / 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5]}
         data={posts}
         loading={loading}

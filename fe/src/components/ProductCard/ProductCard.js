@@ -35,13 +35,13 @@ const responsive = {
 };
 
 const PostGrid = ({
-  title,
+  exhbnTitle,
   rating,
-  location,
-  price,
+  exhbnLocation,
+  exhbnPrice,
   ratingCount,
-  gallery,
-  slug,
+  exhbnImage,
+  exhbnNum,
   link,
 }) => {
   return (
@@ -54,13 +54,13 @@ const PostGrid = ({
           }}
         />
       }
-      location={location.formattedAddress}
-      title={<TextLink link={`${link}/${slug}`} content={title} />}
-      price={`$${price}/Night - Free Cancellation`}
+      location={exhbnLocation}
+      title={<TextLink link={`exhbns/${exhbnNum}`} content={exhbnTitle} />}
+      price={`$${exhbnPrice}/1매`}
       rating={<Rating rating={rating} ratingCount={ratingCount} type="bulk" />}
       viewDetailsBtn={
         <TextLink
-          link={`${link}/${slug}`}
+          link={`exhbns/${exhbnNum}`}
           icon={<FiExternalLink />}
           content="View Details"
         />
@@ -82,11 +82,11 @@ const PostGrid = ({
         sliderClass=""
         slidesToSlide={1}
       >
-        {gallery.map(({ url, title }, index) => (
+        {(exhbnImage, exhbnTitle, exhbnNum) => (
           <img
-            src={url}
-            alt={title}
-            key={index}
+            src={exhbnImage}
+            alt={exhbnTitle}
+            key={exhbnNum}
             draggable={false}
             style={{
               width: '100%',
@@ -95,7 +95,7 @@ const PostGrid = ({
               position: 'relative',
             }}
           />
-        ))}
+        )}
       </Carousel>
     </GridCard>
   );

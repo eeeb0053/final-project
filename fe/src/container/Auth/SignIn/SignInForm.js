@@ -13,7 +13,7 @@ const SignInForm = () => {
   const [ userid, setUserid ] = useState('')
   const [ password, setPassword ] = useState('')
 
-  const API_URL = 'http://localhost:8080/api/users/'
+  const URL = 'http://localhost:8080/api/users/login'
 
   const authHeader = () => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -28,17 +28,19 @@ const SignInForm = () => {
 
   const login = (userid, password) => {
     return axios
-      .post(API_URL + "login", {
+      .post(URL, {
         userid,
         password
       })
-      .then(response => {
-        if (response.data.accessToken) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        }
+      .then(resp => {
+        alert('로그인 성공')
+        localStorage.setItem("user", JSON.stringify(resp.data));
 
-        return response.data;
-      });
+        return resp.data;
+      })
+      .catch(err => {
+        alert(`회원가입 실패`)
+      })
   }
 
   const logout = () => {

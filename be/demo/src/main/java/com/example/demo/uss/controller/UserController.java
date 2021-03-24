@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
  
 @RestController @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/api/users") @RequiredArgsConstructor
+@RequestMapping("/users") @RequiredArgsConstructor
 public class UserController extends AbstractController<User>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final UserServiceImpl service;

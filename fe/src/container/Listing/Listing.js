@@ -20,7 +20,7 @@ const Listing = ({ location, history }) => {
   let url = '/data/hotel.json';
   const { width } = useWindowSize();
   const [showMap, setShowMap] = useState(false);
-  const { data, loading, loadMoreData, total, limit } = useDataApi(url);
+  const { data, loading, loadMoreData, total, limit } = useDataApi('http://localhost:8080/exhbns/all');
   let columnWidth = [1 / 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5];
   if (location.search) {
     url += location.search;
@@ -31,30 +31,10 @@ const Listing = ({ location, history }) => {
   const handleMapToggle = () => {
     setShowMap((showMap) => !showMap);
   };
-  const URL = 'http://localhost:8080/exhbns/all'
-  useEffect(() => {
-    axios.get(URL, )
-    .then((resp) => {
-      alert(`성공`)
-      setExhbnList(resp.data)
-    })
-    .catch((err) => {
-      alert(`실패`)
-      throw err;
-    })
-  }, [])
+
 
   return (
     <>
-    <ul>
-    {exhbnList.map(i => (
-      <li
-        key = {i.exhbnNum}
-      >
-        {i.exhbnTitle}
-      </li>
-    ))}
-    </ul>
     <ListingWrapper>
       <Sticky top={82} innerZ={999} activeClass="isHeaderSticky">
         <Toolbar

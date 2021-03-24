@@ -42,7 +42,7 @@ const carouselOptions = {
 };
 
 const LocationGrid = () => {
-  const { data } = useDataApi('/data/location.json');
+  const { data } = useDataApi('http://localhost:8080/halls/all');
 
   return (
     <LocationWrapper>
@@ -65,9 +65,9 @@ const LocationGrid = () => {
                   <GlideSlide key={index}>
                     <ImageCard
                       link="listing"
-                      imageSrc={post.locationImage.url}
-                      title={post.city}
-                      meta={`${post.numberOfPost} Hotels`}
+                      imageSrc={post.hallImage}
+                      title={post.hallName}
+                      meta={`Show list`}
                     />
                   </GlideSlide>
                 ))}

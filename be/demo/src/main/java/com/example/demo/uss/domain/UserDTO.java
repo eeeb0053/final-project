@@ -1,22 +1,13 @@
 package com.example.demo.uss.domain;
 
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 import org.springframework.context.annotation.Lazy;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 
 @Component @Lazy @Getter
-public class UserDTO implements UserDetails{
-	private static final long serialVersionUID = 1L;
+public class UserDTO{
 	private long userNum;
 	private String userid;
 	private String password;
@@ -27,6 +18,7 @@ public class UserDTO implements UserDetails{
 	private String phoneNumber;
 	private String preferGenre;
 	
+	/*
 	private Collection<? extends GrantedAuthority> authorities;
 	
 	public UserDTO(long userNum, String userid, String password, String username,
@@ -48,7 +40,6 @@ public class UserDTO implements UserDetails{
 		return new UserDTO(user.getUserNum(), user.getUserid(), user.getUsername(),
 				user.getEmail(), user.getPassword(), authorities);
 	}
-	
 	
 	
 	@Override
@@ -80,5 +71,10 @@ public class UserDTO implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	*/
 }

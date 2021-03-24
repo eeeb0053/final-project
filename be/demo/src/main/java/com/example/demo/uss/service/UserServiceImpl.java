@@ -7,8 +7,6 @@ import javax.transaction.Transactional;
 
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.uss.domain.User;
@@ -17,7 +15,7 @@ import com.example.demo.uss.repository.UserRepository;
 import com.example.demo.cmm.service.AbstractService;
 
 @Service @RequiredArgsConstructor
-public class UserServiceImpl extends AbstractService<User> implements UserService{
+public class UserServiceImpl extends AbstractService<User>{
 	private final UserRepository repo;
 	
 	@Override public long save(User u) { return (repo.save(u) != null) ? 1 : 0;}
@@ -27,6 +25,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	@Override public User getOne(long id) { return repo.getOne(id);}
 	@Override public Optional<User> findById(long id){ return repo.findById(id);}
 	@Override public boolean existsById(long id) { return repo.existsById(id);}
+	/*
 	@Override
 	public UserDetails loadUserByUsername(String useridOrEmail) throws UsernameNotFoundException {
 		return UserDTO.create(repo.findByUseridOrEmail(useridOrEmail, useridOrEmail)
@@ -37,6 +36,6 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 		User user = repo.findById(id)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found with id : " + id));
 		return UserDTO.create(user);
-	}
+	} */
 
 }

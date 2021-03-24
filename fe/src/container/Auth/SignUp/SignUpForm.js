@@ -20,11 +20,11 @@ const SignUpForm = () => {
   const [ phoneNumber, setPhoneNumber ] = useState('')
   const [ preferGenre, setPreferGenre ] = useState('')
 
-  const API_URL = 'http://localhost:8080/api/users/'
+  const URL = 'http://localhost:8080/users/add'
 
   const register = e => {
     e.preventDefault()
-    axios.post(API_URL + "add", {
+    axios.post(URL, {
       userid, password, username, email, gender, birthday, phoneNumber,preferGenre
     })
     .then(resp => {

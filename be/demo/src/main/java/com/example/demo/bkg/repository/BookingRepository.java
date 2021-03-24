@@ -13,7 +13,7 @@ interface BookingCustomRepository{
 }
 public interface BookingRepository extends JpaRepository<Booking, Long>, BookingCustomRepository{
 	@Query(value="update booking b set b.book_name = :bookName, b.book_email = :bookEmail, b.book_pnumber =:bookPnumber"
-			+ " where b.book_num = :bookNum", nativeQuery = true)
+			+ " where b.book_num = :bookNum;", nativeQuery = true)
 	public long update(@Param("bookName") String bookName,
 						@Param("bookEmail") String bookEmail, @Param("bookPnumber") String bookPnumber,
 						@Param("bookNum") long bookNum);
