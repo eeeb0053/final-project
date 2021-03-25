@@ -11,7 +11,7 @@ import GlideCarousel, {
   GlideSlide,
 } from 'components/UI/GlideCarousel/GlideCarousel';
 import useDataApi from 'library/hooks/useDataApi';
-import { LISTING_POSTS_PAGE } from 'settings/constant';
+import { HALL_LIST_PAGE } from 'settings/constant';
 import LocationWrapper, { CarouselSection } from './Location.style';
 const carouselOptions = {
   type: 'carousel',
@@ -48,8 +48,8 @@ const LocationGrid = () => {
     <LocationWrapper>
       <Container fluid={true}>
         <SectionTitle
-          title={<Heading content="Explore Destinations" />}
-          link={<TextLink link={LISTING_POSTS_PAGE} content="Show all" />}
+          title={<Heading content="전시관별 모아보기" />}
+          link={<TextLink link={HALL_LIST_PAGE} content="Show all" />}
         />
 
         <CarouselSection>
@@ -64,7 +64,7 @@ const LocationGrid = () => {
                 {data.map((post, index) => (
                   <GlideSlide key={index}>
                     <ImageCard
-                      link="listing"
+                      link='/hallList'
                       imageSrc={post.hallImage}
                       title={post.hallName}
                       meta={`Show list`}

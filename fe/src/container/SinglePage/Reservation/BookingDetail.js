@@ -27,12 +27,12 @@ const BookingDetail = ({match, props}) => {
   }, [])
 
   const handleEditBooking = e => {
-    alert("이름: "+bookName+"이메일: "+bookEmail+"번호: "+bookPnumber)
+    alert("예약번호:"+match.params.bookNum+"이름: "+bookName+"이메일: "+bookEmail+"번호: "+bookPnumber)
     const del = window.confirm("예매자 정보를 수정하시겠습니까?")
     const URL_EDIT = `http://localhost:8080/bookings/update`
     if(del){
       axios.put(URL_EDIT, { 
-        bookNum: bookingDetail.bookNum , bookName, bookEmail, bookPnumber
+        bookNum: match.params.bookNum, bookName, bookEmail, bookPnumber
        })
       .then(resp => {
         alert(`수정되었습니다.`)

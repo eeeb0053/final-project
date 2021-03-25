@@ -33,6 +33,7 @@ public class Exhbn {
 	@Column(name = "exhbn_artist") private String exhbnArtist;
 	@Column(name = "exhbn_content") private String exhbnContent;
 	@Column(name = "exhbn_image") private String exhbnImage;
+	@Column(name = "hall_location") private String hallLocation;
 	
 	@ManyToOne
 	@JoinColumn(name = "hall_num")

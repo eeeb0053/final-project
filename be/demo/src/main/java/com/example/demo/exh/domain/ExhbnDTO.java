@@ -17,6 +17,7 @@ public class ExhbnDTO {
     private String exhbnArtist;
     private String exhbnContent;
     private String exhbnImage;
+    private String hallLocation;
 }
 /*
 create table shows(

@@ -18,7 +18,10 @@ import {
   BOOKING_PAGE,
   BOOKING_LIST_PAGE,
   BOOKING_DETAIL_PAGE,
-  EXHBN_DETAIL_PAGE
+  EXHBN_DETAIL_PAGE,
+  EXHBN_LIST_PAGE,
+  HALL_DETAIL_PAGE,
+  HALL_LIST_PAGE,
 } from './settings/constant';
 
 /**
@@ -140,6 +143,24 @@ const routes = [
     }),
   },
   {
+    path: EXHBN_LIST_PAGE,
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "BookingList" */ './container/Listing/Listing'),
+      loading: Loading,
+      modules: ['ExhbnList'],
+    }),
+  },
+  {
+    path: HALL_LIST_PAGE,
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "BookingList" */ './container/Listing/HallListing'),
+      loading: Loading,
+      modules: ['HallList'],
+    }),
+  },
+  {
     path: `${BOOKING_DETAIL_PAGE}/:bookNum`,
     component: Loadable({
       loader: () =>
@@ -159,6 +180,17 @@ const routes = [
         ),
       loading: Loading,
       modules: ['ExbhnDetail'],
+    }),
+  },
+  {
+    path: `${HALL_DETAIL_PAGE}/:hallNum`,
+    component: Loadable({
+      loader: () =>
+        import(
+          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/SinglePageView'
+        ),
+      loading: Loading,
+      modules: ['HallDetail'],
     }),
   },
 ];

@@ -129,45 +129,6 @@ const SearchForm = ({ history }) => {
         />
       </ComponentWrapper>
 
-      <ComponentWrapper>
-        <FaUserFriends className="user-friends" />
-        <ViewWithPopup
-          key={200}
-          noView={true}
-          className="room_guest"
-          view={
-            <Button type="default">
-              <span>Room {roomGuest.room > 0 && `: ${roomGuest.room}`}</span>
-              <span>-</span>
-              <span>Guest{roomGuest.guest > 0 && `: ${roomGuest.guest}`}</span>
-            </Button>
-          }
-          popup={
-            <RoomGuestWrapper>
-              <ItemWrapper>
-                <strong>Room</strong>
-                <InputIncDec
-                  id="room"
-                  increment={() => handleIncrement('room')}
-                  decrement={() => handleDecrement('room')}
-                  onChange={(e) => handleIncDecOnChnage(e, 'room')}
-                  value={roomGuest.room}
-                />
-              </ItemWrapper>
-              <ItemWrapper>
-                <strong>Guest</strong>
-                <InputIncDec
-                  id="guest"
-                  increment={() => handleIncrement('guest')}
-                  decrement={() => handleDecrement('guest')}
-                  onChange={(e) => handleIncDecOnChnage(e, 'guest')}
-                  value={roomGuest.guest}
-                />
-              </ItemWrapper>
-            </RoomGuestWrapper>
-          }
-        />
-      </ComponentWrapper>
 
       <Button
         type="primary"
@@ -175,7 +136,7 @@ const SearchForm = ({ history }) => {
         size="large"
         onClick={goToSearchPage}
       >
-        Find Hotels
+        전시 검색
       </Button>
     </FormWrapper>
   );

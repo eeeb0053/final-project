@@ -17,16 +17,21 @@ const Listing = ({ location, history }) => {
 
   const [exhbnList, setExhbnList] = useState([])
 
+  let url = '/data/hotel.json';
   const { width } = useWindowSize();
   const [showMap, setShowMap] = useState(false);
-  const { data, loading, loadMoreData, total, limit } = useDataApi('http://localhost:8080/exhbns/all');
+  const { data, loading, loadMoreData, total, limit } = useDataApi(`http://localhost:8080/exhbns/all`);
   let columnWidth = [1 / 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5];
+  if (location.search) {
+    url += location.search;
+  }
   if (showMap) {
     columnWidth = [1 / 1, 1 / 2, 1 / 2, 1 / 2, 1 / 3];
   }
   const handleMapToggle = () => {
     setShowMap((showMap) => !showMap);
   };
+
 
   return (
     <>
@@ -39,6 +44,13 @@ const Listing = ({ location, history }) => {
             ) : (
               <FilterDrawer history={history} location={location} />
             )
+          }
+          right={
+            <ShowMapCheckbox>
+              <Checkbox defaultChecked={false} onChange={handleMapToggle}>
+                Show map
+              </Checkbox>
+            </ShowMapCheckbox>
           }
         />
       </Sticky>

@@ -6,9 +6,12 @@ export const AGENTS_PAGE = '/agents';
 export const LISTING_POSTS_PAGE = '/listing';
 export const SINGLE_POST_PAGE = '/post';
 export const BOOKING_PAGE = '/booking';
-export const BOOKING_LIST_PAGE = '/bookingList'
-export const BOOKING_DETAIL_PAGE = '/bookingDetail'
-export const EXHBN_DETAIL_PAGE = '/exhbns'
+export const BOOKING_LIST_PAGE = '/bookingList';
+export const BOOKING_DETAIL_PAGE = '/bookingDetail';
+export const EXHBN_LIST_PAGE = '/exhbnList';
+export const EXHBN_DETAIL_PAGE = '/exhbns';
+export const HALL_LIST_PAGE = '/hallList';
+export const HALL_DETAIL_PAGE = '/halls';
 
 // Agent Profile Page Section
 export const AGENT_PROFILE_PAGE = '/profile';
