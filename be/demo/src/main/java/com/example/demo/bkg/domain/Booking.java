@@ -14,10 +14,10 @@ import com.example.demo.exh.domain.Exhbn;
 import com.example.demo.uss.domain.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
-@Entity @Getter @Table(name = "bookings") @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity @Data @Table(name = "bookings") @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Booking {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name = "book_num") private long bookNum;

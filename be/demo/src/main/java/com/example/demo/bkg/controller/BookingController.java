@@ -34,13 +34,28 @@ public class BookingController extends AbstractController<Booking>{
 	public ResponseEntity<Long> save(@RequestBody Booking t) {
 		return ResponseEntity.ok(service.save(t));
 	}
-	@PutMapping("/update")
+	@PutMapping("/update/{bookNum}")
 	public ResponseEntity<Long> update(@RequestParam(value = "bookName", required = false) String bookName, 
 			@RequestParam(value = "bookEmail", required = false) String bookEmail, 
 			@RequestParam(value = "bookPnumber", required = false) String bookPnumber, 
-			@RequestParam(value = "bookNum", required = false) long bookNum) {
+			@PathVariable long bookNum) {
 		logger.info("수정 정보: "+ bookName + bookEmail + bookPnumber + bookNum);
 		return ResponseEntity.ok(service.update(bookName, bookEmail, bookPnumber, bookNum)); 
+	}
+	@PutMapping("/edit/{bookNum}")
+	public ResponseEntity<Long> edit(@RequestBody Booking t, @PathVariable long bookNum){
+		logger.info("수정 정보: "+t.toString());
+		Booking b = service.findByBookNum(bookNum);
+		if(!(t.getBookName().equals(b.getBookName()) || t.getBookName().equals(""))) {
+			b.setBookName(t.getBookName());
+		}
+		if(!(t.getBookEmail().equals(b.getBookEmail()) || t.getBookEmail().equals(""))) {
+			b.setBookEmail(t.getBookEmail());
+		}
+		if(!(t.getBookPnumber().equals(b.getBookPnumber()) || t.getBookPnumber().equals(""))) {
+			b.setBookPnumber(t.getBookPnumber());
+		}
+		return ResponseEntity.ok(service.save(b));
 	}
 	@DeleteMapping("/delete")
 	public ResponseEntity<Long> delete(@RequestBody Booking t) {
@@ -67,7 +82,7 @@ public class BookingController extends AbstractController<Booking>{
 		return ResponseEntity.ok(service.existsById(id));
 	}
 	@GetMapping("/find/{bookNum}")
-	public ResponseEntity<List<Booking>> findByBookNum(long bookNum){
+	public ResponseEntity<Booking> findByBookNum(long bookNum){
 		return ResponseEntity.ok(service.findByBookNum(bookNum));
 	}
   

@@ -18,10 +18,5 @@ public class BookingRepositoryImpl extends QuerydslRepositorySupport implements 
 		//this.qf = qf;
 		this.em = em;
 	}
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Booking> findByBookNum(long bookNum) {
-		return em.createQuery("select b from booking b where b.book_num like :bookNum")
-				.setParameter("bookNum", bookNum).getResultList();
-	}
+
 }
