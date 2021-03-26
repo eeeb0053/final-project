@@ -52,9 +52,16 @@ const SinglePage = ({ match }) => {
           <Col xl={16}>
             <Summary
               number={exhbnDetail.exhbnNum}
+              location={exhbnDetail.hallLocation}
+              genre={exhbnDetail.exhbnGenre}
+              artist={exhbnDetail.exhbnArtist}
+              start={exhbnDetail.startDate}
+              end={exhbnDetail.endDate}
+              price={exhbnDetail.exhbnPrice}
               rating={rating}
               ratingCount={ratingCount}
               shareURL={href} 
+              media={exhbnDetail.exhbnImage}
             />
           </Col>
           <Col xl={8}>
@@ -65,7 +72,7 @@ const SinglePage = ({ match }) => {
                 top={190}
                 bottomBoundary="#reviewSection"
               >
-                <Reservation number={exhbnDetail.exhbnNum}/>
+                <Reservation number={exhbnDetail.exhbnNum} price={exhbnDetail.exhbnPrice}/>
               </Sticky>
             ) : (
               <BottomReservation

@@ -6,7 +6,7 @@ import { Input, Switch, Button } from 'antd';
 import FormControl from 'components/UI/FormControl/FormControl';
 import { AuthContext } from 'context/AuthProvider';
 import { FieldWrapper, SwitchWrapper, Label, Title } from './Booking.style';
-import Description from '../Description/Description';
+import Information from '../Information/Information';
 import { TextField } from '@material-ui/core';
 import useDataApi from 'library/hooks/useDataApi';
 import isEmpty from 'lodash/isEmpty';
@@ -41,10 +41,17 @@ const BookingInfo = ( props ) => {
     <form> 
       <div>
         <Title>예매 정보</Title> <br/>
-        <Description
+        <Information
               content={exhbnDetail.exhbnContent}
               title={exhbnDetail.exhbnTitle}
+              number={exhbnDetail.exhbnNum}
               location={exhbnDetail.hallLocation}
+              genre={exhbnDetail.exhbnGenre}
+              artist={exhbnDetail.exhbnArtist}
+              start={exhbnDetail.startDate}
+              end={exhbnDetail.endDate}
+              price={exhbnDetail.exhbnPrice}
+              image={exhbnDetail.exhbnImage}
               rating={rating}
               ratingCount={ratingCount}
             />

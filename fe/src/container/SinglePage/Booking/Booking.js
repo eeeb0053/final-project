@@ -19,7 +19,6 @@ const Booking = ( { match } ) => {
   const URL = `http://localhost:8080/exhbns/find/` 
 
   useEffect(() => {
-    alert(match.params.exhbnNum)
     axios.get(URL+match.params.exhbnNum)
     .then(reps => {
       setBookingDetail(reps.data)
@@ -34,11 +33,11 @@ const Booking = ( { match } ) => {
   return (
     <Wrapper>
       <Divider />
-        <Row gutter={50} style={{ marginTop: 30 }}>
-          <Col xl={15}>
+        <Row gutter={100}>
+          <Col xl={14}>
             <BookingInfo exhbnNum = {match.params.exhbnNum}/>
           </Col>
-          <Col xl={9}>
+          <Col xl={10}>
             <BookingForm/>
           </Col>
         </Row>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import SummaryWrapper, { PosterImage, Info, } from './Summary.style';
+import SummaryWrapper, { PosterImage, Info } from './Summary.style';
 import Heading from 'components/UI/Heading/Heading';
 import Rating from 'components/UI/Rating/Rating';
 import { RatingMeta } from '../SinglePageView.style';
@@ -14,7 +14,6 @@ import {
 import { Button, Menu, Dropdown } from 'antd';
 import { ButtonGroup } from '../SinglePageView.style';
 import useDataApi from 'library/hooks/useDataApi';
-import axios from 'axios';
 
 const SocialShareMenu = (props) => {
     return (
@@ -60,49 +59,39 @@ const SocialShareMenu = (props) => {
 
 const Summary = (props) => {
     const {  
+      title,
       rating,
       ratingCount,
       titleStyle,
-      shareURL, author, number}
+      shareURL, 
+      author, 
+      media,
+      location,
+      start, end, genre, price, artist}
 = props;
-
-const [ exhbnDetail, setExhbnDetail ] = useState([])
-
-const URL = `http://localhost:8080/exhbns/find/` 
-
-  useEffect(() => {
-    axios.get(URL+number)
-    .then(reps => {
-        setExhbnDetail(reps.data)
-    })
-    .catch(err => {
-      alert(`실패`)
-      throw err;
-    })
-  }, [])
 
 return (
         <SummaryWrapper>
             <PosterImage>
-                <img src={exhbnDetail.exhbnImage} alt="" />
+                <img src={media} alt="" />
                 <SideButtons
-                    media={exhbnDetail.exhbnImage}
+                    media={media}
                     author={author}
-                    title={exhbnDetail.exhbnTitle}
+                    title={title}
                     shareURL={shareURL}
                 />
             </PosterImage>
             <Info>
-                <Heading as="h2" content={exhbnDetail.exhbnTitle} {...titleStyle} />
+                <Heading as="h2" content={title} {...titleStyle} />
                 <RatingMeta>
                     <Rating rating={rating} ratingCount={ratingCount} type="bulk" />
                 </RatingMeta>
                 <ul>
-                    <li><strong>장소</strong> <span>{exhbnDetail.hallLocation}</span></li><br />
-                    <li><strong>기간</strong> <span>{exhbnDetail.startDate} ~ {exhbnDetail.endDate}</span></li><br />
-                    <li><strong>가격</strong> <span>{exhbnDetail.exhbnPrice}</span></li><br />
-                    <li><strong>장르</strong> <span>{exhbnDetail.exhbnGenre}</span></li><br />
-                    <li><strong>작가</strong> <span>{exhbnDetail.exhbnArtist}</span></li>
+                    <li><strong>장소</strong> <span>{location}</span></li><br />
+                    <li><strong>기간</strong> <span>{start} ~ {end}</span></li><br />
+                    <li><strong>가격</strong> <span>{price}</span></li><br />
+                    <li><strong>장르</strong> <span>{genre}</span></li><br />
+                    <li><strong>작가</strong> <span>{artist}</span></li>
                 </ul>
             </Info>
            
