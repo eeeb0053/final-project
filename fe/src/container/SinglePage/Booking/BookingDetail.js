@@ -28,7 +28,6 @@ const BookingDetail = ({match, props}) => {
 
   const handleEditBooking = e => {
     e.preventDefault()
-    alert("예약번호:"+match.params.bookNum+"이름: "+bookName+"이메일: "+bookEmail+"번호: "+bookPnumber)
     const del = window.confirm("예매자 정보를 수정하시겠습니까?")
     const URL_EDIT = `http://localhost:8080/bookings/edit/`
     if(del){

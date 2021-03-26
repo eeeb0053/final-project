@@ -125,10 +125,10 @@ const routes = [
     }),
   },
   {
-    path: BOOKING_PAGE,
+    path: `${BOOKING_PAGE}/:exhbnNum`,
     component: Loadable({
       loader: () =>
-        import(/* webpackChunkName: "Booking" */ './container/SinglePage/Reservation/Booking'),
+        import(/* webpackChunkName: "Booking" */ './container/SinglePage/Booking/Booking'),
       loading: Loading,
       modules: ['Booking'],
     }),
@@ -137,7 +137,7 @@ const routes = [
     path: BOOKING_LIST_PAGE,
     component: Loadable({
       loader: () =>
-        import(/* webpackChunkName: "BookingList" */ './container/SinglePage/Reservation/BookingList'),
+        import(/* webpackChunkName: "BookingList" */ './container/SinglePage/Booking/BookingList'),
       loading: Loading,
       modules: ['BookingList'],
     }),
@@ -165,7 +165,7 @@ const routes = [
     component: Loadable({
       loader: () =>
         import(
-          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/Reservation/BookingDetail'
+          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/Booking/BookingDetail'
         ),
       loading: Loading,
       modules: ['BookingDetail'],

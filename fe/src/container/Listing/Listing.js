@@ -18,15 +18,8 @@ const Listing = ({ location, history }) => {
   const [exhbnList, setExhbnList] = useState([])
 
   const { width } = useWindowSize();
-  const [showMap, setShowMap] = useState(false);
   const { data, loading, loadMoreData, total, limit } = useDataApi('http://localhost:8080/exhbns/all');
   let columnWidth = [1 / 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5];
-  if (showMap) {
-    columnWidth = [1 / 1, 1 / 2, 1 / 2, 1 / 2, 1 / 3];
-  }
-  const handleMapToggle = () => {
-    setShowMap((showMap) => !showMap);
-  };
 
   return (
     <>
@@ -44,7 +37,7 @@ const Listing = ({ location, history }) => {
       </Sticky>
 
       <Fragment>
-        <PostsWrapper className={width > 767 && showMap ? 'col-12' : 'col-24'}>
+        <PostsWrapper className={width > 767}>
           <SectionGrid
             link={SINGLE_POST_PAGE}
             columnWidth={columnWidth}
@@ -57,7 +50,6 @@ const Listing = ({ location, history }) => {
           />
         </PostsWrapper>
 
-        {showMap && <ListingMap />}
       </Fragment>
     </ListingWrapper>
     </>

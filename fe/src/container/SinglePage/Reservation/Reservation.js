@@ -21,12 +21,12 @@ const CardHeader = ({ priceStyle, pricePeriodStyle, linkStyle }) => {
   );
 };
 
-export default function Reservation() {
+const Reservation = ( props ) => {
   return (
     <Card
       className="reservation_sidebar"
       header={<CardHeader />}
-      content={<RenderReservationForm />}
+      content={<RenderReservationForm number={props.number}/>}
       footer={
         <p>
         </p>
@@ -57,3 +57,5 @@ CardHeader.defaultProps = {
     color: '#616266',
   },
 };
+
+export default Reservation;

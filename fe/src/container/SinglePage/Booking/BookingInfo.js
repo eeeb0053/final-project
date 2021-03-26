@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { MdLockOpen } from 'react-icons/md';
@@ -13,42 +13,38 @@ import isEmpty from 'lodash/isEmpty';
 import Loader from 'components/Loader/Loader';
 import axios from 'axios';
 
-const BookingInfo = ( { match }) => {
+const BookingInfo = ( props ) => {
 
-  const [ userid, setUserid ] = useState('')
-  const [ password, setPassword ] = useState('')
-  const [ username, setUsername ] = useState('')
-  const [ email, setEmail ] = useState('')
-  const [ gender, setGender ] = useState('')
-  const [ birthday, setBirthday ] = useState('')
-  const [ phoneNumber, setPhoneNumber ] = useState('')
-  const [ preferGenre, setPreferGenre ] = useState('')
+  const [ exhbnDetail, setexhbnDetail ] = useState([])
+  const [ props2 ] = useState([])
 
+  const URL = `http://localhost:8080/exhbns/find/` 
 
-  let url = '/data/hotel-single.json';
+  useEffect(() => {
+    axios.get(URL+props.exhbnNum)
+    .then(reps => {
+      setexhbnDetail(reps.data)
+    })
+    .catch(err => {
+      alert(`실패`)
+      throw err;
+    })
+  }, [])
+
+  // const { data, loading } = useDataApi(`http://localhost:8080/exhbns/all`);
+
+  if (isEmpty(exhbnDetail)) return <Loader />;
   
-  const { data, loading } = useDataApi(url);
-  if (isEmpty(data) || loading) return <Loader />;
-  const {
-    rating,
-    ratingCount,
-    price,
-    title,
-    location,
-    content,
-    amenities,
-    author,
-  } = data[0];
-
+  const { rating, ratingCount, amenities, author} = props2;
 
   return (
     <form> 
       <div>
         <Title>예매 정보</Title> <br/>
         <Description
-              content={content}
-              title={title}
-              location={location}
+              content={exhbnDetail.exhbnContent}
+              title={exhbnDetail.exhbnTitle}
+              location={exhbnDetail.hallLocation}
               rating={rating}
               ratingCount={ratingCount}
             />

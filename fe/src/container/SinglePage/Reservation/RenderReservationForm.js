@@ -13,7 +13,7 @@ import ReservationFormWrapper, {
 import { Link } from 'react-router-dom'
 import { BOOKING_PAGE } from 'settings/constant'
 
-const RenderReservationForm = () => {
+const RenderReservationForm = ( props ) => {
   const [formState, setFormState] = useState({
     startDate: null,
     endDate: null,
@@ -53,7 +53,6 @@ const RenderReservationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
 
   return (
     <ReservationFormWrapper className="form-container" onSubmit={handleSubmit}>
@@ -110,7 +109,7 @@ const RenderReservationForm = () => {
         />
       </FieldWrapper>
       <FormActionArea>
-        <Link to={BOOKING_PAGE}>
+        <Link to={`${BOOKING_PAGE}/${props.number}`}>
         <Button htmlType="submit" type="primary">
           예매하기
         </Button>

@@ -56,7 +56,7 @@ const PostGrid = ({
           }}
         />
       }
-      title={<TextLink link={`exhbns/${exhbnNum}`} content={exhbnTitle} />}
+      title={<TextLink link={`exhbns/${exhbnNum}`} content={exhbnTitle}/>}
       location={`${hallLocation}`}
       price={`${startDate} ~ ${endDate}`}
       rating={<Rating rating={rating} ratingCount={ratingCount} type="bulk" />}
