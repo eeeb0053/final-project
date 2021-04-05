@@ -3973,6 +3973,11 @@ data-urls@^1.0.0, data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
+date-fns@^2.0.1:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.19.0.tgz#65193348635a28d5d916c43ec7ce6fbd145059e1"
+  integrity sha512-X3bf2iTPgCAQp9wvjOQytnf5vO5rESYRXlPIVcgSbtT5OTScPcsf9eZU+B/YIkKAtYr5WeCii58BgATrNitlWg==
+
 date-fns@^2.15.0:
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.18.0.tgz#08e50aee300ad0d2c5e054e3f0d10d8f9cdfe09e"
@@ -9772,6 +9777,17 @@ react-content-loader@^6.0.1:
   resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-6.0.1.tgz#1c5ce4a6256d974fcd3ac85460eca24b33226920"
   integrity sha512-djJUgGNze7YdWzJA1kYO1eKXAMpP+Z4sMulmEuTVi6vEXzfuQCJs6yD8hhgWj23vvJPZL5b8NyabxteyF8Hq/g==
 
+react-datepicker@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-3.7.0.tgz#390a611dc94e6a26ec070be01760b9f967da8521"
+  integrity sha512-O7bUv5zbjQ/sMItH6f2Sh7eHxqKN3VT3qT5naIIXv8el+GixsjmwOORDltlxcT0+ynkRUG6VeL70whbvyGPLTA==
+  dependencies:
+    classnames "^2.2.6"
+    date-fns "^2.0.1"
+    prop-types "^15.7.2"
+    react-onclickoutside "^6.10.0"
+    react-popper "^1.3.8"
+
 react-dates@^21.8.0:
   version "21.8.0"
   resolved "https://registry.yarnpkg.com/react-dates/-/react-dates-21.8.0.tgz#355c3c7a243a7c29568fe00aca96231e171a5e94"
@@ -9917,6 +9933,11 @@ react-multi-carousel@^2.6.1:
   resolved "https://registry.yarnpkg.com/react-multi-carousel/-/react-multi-carousel-2.6.2.tgz#c78d38fbfab704394a72f26ffa161b8963138a1f"
   integrity sha512-qSrupBGazqYS/LVQAUCWiEAPhCrO0QufP5PcpDCA6Klig3egdNMwIdkkoU6Xlm9zEQ/hFp57bNr7F4sd0ANLyA==
 
+react-onclickoutside@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.10.0.tgz#05abb592575b08b4d129003494056b9dff46eeeb"
+  integrity sha512-7i2L3ef+0ILXpL6P+Hg304eCQswh4jl3ynwR71BSlMU49PE2uk31k8B2GkP6yE9s2D4jTGKnzuSpzWxu4YxfQQ==
+
 react-outside-click-handler@^1.2.4:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/react-outside-click-handler/-/react-outside-click-handler-1.3.0.tgz#3831d541ac059deecd38ec5423f81e80ad60e115"
@@ -9928,7 +9949,7 @@ react-outside-click-handler@^1.2.4:
     object.values "^1.1.0"
     prop-types "^15.7.2"
 
-react-popper@^1.3.6:
+react-popper@^1.3.6, react-popper@^1.3.8:
   version "1.3.11"
   resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.3.11.tgz#a2cc3f0a67b75b66cfa62d2c409f9dd1fcc71ffd"
   integrity sha512-VSA/bS+pSndSF2fiasHK/PTEEAyOpX60+H5EPAjoArr8JGm+oihu4UbrqcEBpQibJxBVCpYyjAX7abJ+7DoYVg==

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StateMachineProvider, createStore } from 'little-state-machine';
 import { Progress } from 'antd';
-import BasicInformation from './BasicInformation';
+import AddExhbn from './AddExhbn';
 import HotelPhotos from './HotelPhotos';
 import HotelLocation from './HotelLocation';
 import HotelAmenities from './HotelAmenities';
@@ -16,7 +16,7 @@ const AddListing = () => {
   const [step, setStep] = useState(1);
   switch (step) {
     case 1:
-      stepComponent = <BasicInformation setStep={setStep} />;
+      stepComponent = <AddExhbn setStep={setStep} />;
       break;
 
     case 2:
@@ -26,11 +26,11 @@ const AddListing = () => {
     case 3:
       stepComponent = <HotelLocation setStep={setStep} />;
       break;
-
-    case 4:
+/*
+     case 4:
       stepComponent = <HotelAmenities setStep={setStep} />;
       break;
-
+ */
     default:
       stepComponent = null;
   }

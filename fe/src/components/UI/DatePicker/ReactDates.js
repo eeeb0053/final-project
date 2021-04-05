@@ -1,7 +1,7 @@
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ReactDatesStyleWrapper } from './ReactDates.style';
 /*
@@ -10,109 +10,89 @@ import { ReactDatesStyleWrapper } from './ReactDates.style';
 // import moment from 'moment';
 // import 'moment/locale/fr';
 
-export const DateRangePickerBox = () => {
-  const [focusedInput, setFocusedInput] = useState({})
-  const [startDate, setStartDate] = useState({})
-  const [endDate, setEndDate] = useState({})
-  /*
-  constructor(props) {
-    super(props);
-    const separator =
-      this.props.item && this.props.item.separator
-        ? this.props.item.separator
-        : '/';
-    const dateFormat =
-      this.props.item && this.props.item.format
-        ? this.props.item.format
-        : 'llll';
-    this.state = {
-      focusedInput: null,
-      startDate: this.props.startDate ? this.props.startDate : null,
-      endDate: this.props.endDate ? this.props.endDate : null,
-      dateFormat,
-      separator,
-    };
-    this.onDateChangeFunc = this.onDateChangeFunc.bind(this);
-    this.onFocusChangeFunc = this.onFocusChangeFunc.bind(this);
-  }
+const DateRangePickerBox = (props) => {
+  const [ focusedInput, setFocusedInput ] = useState('');
+  const [ startDate, setStartDate ] = useState(0);
+  const [ endDate, setEndDate ] = useState(0);
+  // DateRangePickerBox props list
+  const {
+    classNamed,
+    startDateId,
+    endDateId,
+    startDatePlaceholderText,
+    endDatePlaceholderText,
+    disabled,
+    showClearDates,
+    isRTL,
+    orientation,
+    anchorDirection,
+    withPortal,
+    withFullScreenPortal,
+    small,
+    block,
+    numberOfMonths,
+    regular,
+    noBorder
+  } = props;
 
-  onDateChangeFunc = ({ startDate, endDate }) => {
-    const { dateFormat } = this.state;
-    this.setState({ startDate, endDate });
+  const separator =  props.item && props.item.separator
+        ? props.item.separator : '/';
+
+  const dateFormat = props.item && props.item.format
+        ? props.item.format : 'llll';
+
+  setStartDate(props.startDate ? props.startDate : null)
+  setEndDate(props.endDate ? props.endDate : null)
+
+  const onDateChangeFunc = () => {
     if (startDate !== null && endDate !== null) {
-      this.props.updateSearchData({
-        setStartDate: startDate.format(dateFormat),
-        setEndDate: endDate.format(dateFormat),
+      props.updateSearchData({
+        setStartDate: startDate,
+        setEndDate: endDate,
       });
     }
   };
 
-  onFocusChangeFunc = focusedInput => {
-    return this.setState({ focusedInput });
+  const onFocusChangeFunc = () => {
+    setFocusedInput(focusedInput);
   };
 
-  render() {
-    const { focusedInput, startDate, endDate } = this.state;
-    // DateRangePickerBox props list
-    const {
-      className,
-      startDateId,
-      endDateId,
-      startDatePlaceholderText,
-      endDatePlaceholderText,
-      disabled,
-      showClearDates,
-      isRTL,
-      orientation,
-      anchorDirection,
-      withPortal,
-      withFullScreenPortal,
-      small,
-      block,
-      numberOfMonths,
-      regular,
-      noBorder,
-    } = this.props;
-
-    // Add all classs to an array **************
-    const addAllClasses = ['date_picker'];
+  const addAllClasses = ['date_picker'];
     // className prop checking **************
-    if (className) {
-      addAllClasses.push(className);
+    if (classNamed) {
+      addAllClasses.push(classNamed);
     }
+  
+  const defaultCalenderProps = {
+    startDateId: startDateId ? startDateId : 'start_unique_id',
+    endDateId: endDateId ? endDateId : 'end_date_unique_id',
+    startDate,
+    endDate,
+    focusedInput,
+    onFocusChange: onFocusChangeFunc(),
+    onDatesChange: onDateChangeFunc(),
+    startDatePlaceholderText,
+    endDatePlaceholderText,
+    disabled,
+    isRTL,
+    showClearDates: showClearDates ? showClearDates : false,
+    orientation,
+    anchorDirection,
+    withPortal,
+    withFullScreenPortal,
+    small,
+    numberOfMonths: numberOfMonths ? numberOfMonths : 2,
+    block,
+    regular,
+    noBorder,
+  };
 
-    // React-Dates DateRangePicker Props List
-    const defaultCalenderProps = {
-      startDateId: startDateId ? startDateId : 'start_unique_id',
-      endDateId: endDateId ? endDateId : 'end_date_unique_id',
-      startDate,
-      endDate,
-      focusedInput,
-      onFocusChange: this.onFocusChangeFunc,
-      onDatesChange: this.onDateChangeFunc,
-      startDatePlaceholderText,
-      endDatePlaceholderText,
-      disabled,
-      isRTL,
-      showClearDates: showClearDates ? showClearDates : false,
-      orientation,
-      anchorDirection,
-      withPortal,
-      withFullScreenPortal,
-      small,
-      numberOfMonths: numberOfMonths ? numberOfMonths : 2,
-      block,
-      regular,
-      noBorder,
-    };
-*/
-    return (<></>
-      /*
-      <ReactDatesStyleWrapper className={addAllClasses.join(' ')}>
-        <DateRangePicker {...defaultCalenderProps} />
-      </ReactDatesStyleWrapper>*/
-    );
-  }
+  return (
+    <ReactDatesStyleWrapper className={addAllClasses.join(' ')}>
+      <DateRangePicker {...defaultCalenderProps} />
+    </ReactDatesStyleWrapper>
+  );
+}
 
 DateRangePickerBox.propTypes = {
   /** startDateId of the date-picker field */

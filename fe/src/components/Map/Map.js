@@ -28,7 +28,7 @@ const Map = (props) => {
             gridSize={60}
             averageCenter
             defaultEnableRetinaIcons={true}
-            onClick={handleClustererClick}
+            onClick={() => handleClustererClick()}
           >
             <HotelMapMarkerCluster location={location} />
           </MarkerClusterer>

@@ -18,7 +18,7 @@ const LoadMore = ({
         {loadMoreComponent ? (
           loadMoreComponent
         ) : (
-          <Button loading={loading} onClick={handleLoadMore}>
+          <Button loading={loading} onClick={e => handleLoadMore()}>
             {buttonText || 'Load More'}
           </Button>
         )}

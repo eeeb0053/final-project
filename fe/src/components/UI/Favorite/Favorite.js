@@ -22,7 +22,7 @@ const Favorite = ({ className, content, onClick }) => {
 
   return (
     <FavoriteWrapper
-      onClick={handelClick}
+      onClick={() => handelClick()}
       className={`${addAllClass.join(' ')} ${toggleValue ? 'active' : ''}`}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.64 18.232">

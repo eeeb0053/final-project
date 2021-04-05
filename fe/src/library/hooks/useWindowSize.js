@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const useWindowSize = () => {
   const isClient = typeof window === 'object';
@@ -13,7 +13,7 @@ const useWindowSize = () => {
 
   const [size, setSize] = React.useState(getSize);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isClient) {
       return false;
     }

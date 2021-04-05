@@ -11,12 +11,12 @@ import Wrapper, {
   BannerWrapper,
 } from './Booking.style';
 import axios from 'axios'
-
+import TextInfo from 'components/UI/Text/Text';
 const Booking = ( { match } ) => {
   
   const [ bookingDetail, setBookingDetail ] = useState([])
 
-  const URL = `http://localhost:8080/exhbns/find/` 
+  const URL = `http://localhost:8080/exhbns/one/` 
 
   useEffect(() => {
     axios.get(URL+match.params.exhbnNum)
@@ -33,11 +33,11 @@ const Booking = ( { match } ) => {
   return (
     <Wrapper>
       <Divider />
-        <Row gutter={100}>
-          <Col xl={14}>
+        <Row gutter={48}>
+          <Col span={15}>
             <BookingInfo exhbnNum = {match.params.exhbnNum}/>
           </Col>
-          <Col xl={10}>
+          <Col span={8}>
             <BookingForm/>
           </Col>
         </Row>

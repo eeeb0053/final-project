@@ -8,9 +8,6 @@ import {
   REGISTRATION_PAGE,
   FORGET_PASSWORD_PAGE,
   HOME_PAGE,
-  LISTING_POSTS_PAGE,
-  SINGLE_POST_PAGE,
-  ADD_HOTEL_PAGE,
   AGENT_PROFILE_PAGE,
   AGENT_ACCOUNT_SETTINGS_PAGE,
   PRIVACY_PAGE,
@@ -22,6 +19,10 @@ import {
   EXHBN_LIST_PAGE,
   HALL_DETAIL_PAGE,
   HALL_LIST_PAGE,
+  LISTING_SEARCH_POST_PAGE,
+  ADD_EXHBN_PAGE,
+  UPDATE_EXHBN_PAGE,
+  ADD_IMAGE_PAGE
 } from './settings/constant';
 
 /**
@@ -73,26 +74,6 @@ const routes = [
         ),
       loading: Loading,
       modules: ['ForgetPassword'],
-    }),
-  },
-  {
-    path: `${SINGLE_POST_PAGE}/:slug`,
-    component: Loadable({
-      loader: () =>
-        import(
-          /* webpackChunkName: "SinglePageView" */ './container/SinglePage/SinglePageView'
-        ),
-      loading: Loading,
-      modules: ['SinglePageView'],
-    }),
-  },
-  {
-    path: LISTING_POSTS_PAGE,
-    component: Loadable({
-      loader: () =>
-        import(/* webpackChunkName: "Listing" */ './container/Listing/Listing'),
-      loading: Loading,
-      modules: ['Listing'],
     }),
   },
   {
@@ -176,7 +157,7 @@ const routes = [
     component: Loadable({
       loader: () =>
         import(
-          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/SinglePageView'
+          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/ExhbnDetail'
         ),
       loading: Loading,
       modules: ['ExbhnDetail'],
@@ -187,10 +168,65 @@ const routes = [
     component: Loadable({
       loader: () =>
         import(
-          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/SinglePageView'
+          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/ExhbnDetail'
         ),
       loading: Loading,
       modules: ['HallDetail'],
+    }),
+  },
+  {
+    path: LISTING_SEARCH_POST_PAGE,
+    component: Loadable({
+      loader: () =>
+        import(
+          /* webpackChunkName: "ExbhnDetail" */ './container/Listing/SearchListing'
+        ),
+      loading: Loading,
+      modules: ['SearchListing'],
+    }),
+  },
+
+  {
+    path: `${HALL_DETAIL_PAGE}/:hallNum`,
+    component: Loadable({
+      loader: () =>
+        import(
+          /* webpackChunkName: "HallDetail" */ './container/HallPage/HallDetail'),
+      loading: Loading,
+      modules: ['HallDetail'],
+    }),
+  },
+  {
+    path: ADD_EXHBN_PAGE,
+    component: Loadable({
+      loader: () =>
+        import(
+          /* webpackChunkName: "AddExhbn" */ './container/AddListing/AddExhbn'
+        ),
+      loading: Loading,
+      modules: ['AddExhbn'],
+    }),
+  },
+  {
+    path: `${UPDATE_EXHBN_PAGE}/:exhbnNum`,
+    component: Loadable({
+      loader: () =>
+        import(
+          /* webpackChunkName: "UpdateExhbn" */ './container/AddListing/UpdateExhbn'
+        ),
+      loading: Loading,
+      modules: ['UpdateExhbn'],
+    }),
+  },
+  {
+    path: ADD_IMAGE_PAGE,
+    component: Loadable({
+      loader: () =>
+        import(
+          /* webpackChunkName: "AddExhbn" */ './container/AddListing/HotelPhotos'
+        ),
+      loading: Loading,
+      modules: ['HotelPhotos'],
     }),
   },
 ];
@@ -217,6 +253,8 @@ const AgentAccountSettingsPage = Loadable({
   loading: Loading,
   modules: ['AgentAccountSettingsPage'],
 });
+
+
 
 /**
  *
@@ -256,7 +294,7 @@ const App = () => {
         {routes.map(({ path, component, exact = false }) => (
           <Route key={path} path={path} exact={exact} component={component} />
         ))}
-        <ProtectedRoute path={ADD_HOTEL_PAGE} component={AddListing} />
+        <ProtectedRoute path={ADD_EXHBN_PAGE} component={AddListing} />
         <ProtectedRoute
           path={AGENT_ACCOUNT_SETTINGS_PAGE}
           component={AgentAccountSettingsPage}

@@ -37,9 +37,9 @@ const LikeDislike = () => {
       <span className="comment-helpful">
         <Tooltip title="Like">
           {state.action === 'liked' ? (
-            <LikeFilled onClick={handleLike} />
+            <LikeFilled onClick={() => handleLike()} />
           ) : (
-            <LikeOutlined onClick={handleLike} />
+            <LikeOutlined onClick={() => handleLike()} />
           )}
         </Tooltip>
         <span style={{ paddingLeft: 8, cursor: 'auto' }}>{state.likes}</span>
@@ -47,9 +47,9 @@ const LikeDislike = () => {
       <span className="comment-report">
         <Tooltip title="Dislike">
           {state.action === 'disliked' ? (
-            <DislikeFilled onClick={handleDisLike} />
+            <DislikeFilled onClick={() => handleDisLike()} />
           ) : (
-            <DislikeOutlined onClick={handleDisLike} />
+            <DislikeOutlined onClick={() => handleDisLike()} />
           )}
         </Tooltip>
         <span style={{ paddingLeft: 8, cursor: 'auto' }}>{state.dislikes}</span>

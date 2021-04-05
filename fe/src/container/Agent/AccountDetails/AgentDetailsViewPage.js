@@ -20,7 +20,7 @@ import AgentFavItemLists from './AgentFavItemLists';
 import AgentContact from './AgentContact';
 import useDataApi from 'library/hooks/useDataApi';
 import {
-  ADD_HOTEL_PAGE,
+  ADD_EXHBN_PAGE,
   AGENT_PROFILE_FAVOURITE,
   AGENT_PROFILE_CONTACT,
 } from 'settings/constant';
@@ -59,7 +59,7 @@ const ProfileNavigation = (props) => {
         </Menu>
 
         {loggedIn && (
-          <Link className="add_card" to={ADD_HOTEL_PAGE}>
+          <Link className="add_card" to={ADD_EXHBN_PAGE}>
             <IoIosAdd /> Add Hotel
           </Link>
         )}

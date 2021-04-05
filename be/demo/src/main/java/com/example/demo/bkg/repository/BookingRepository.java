@@ -19,4 +19,5 @@ public interface BookingRepository extends JpaRepository<Booking, Long>, Booking
 	
 	@Query(value="select * from bookings b where b.book_num like :bookNum", nativeQuery = true)
 	public Booking findByBookNum(@Param("bookNum") long bookNum);
+	
 }

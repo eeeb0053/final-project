@@ -11,11 +11,11 @@ const InputIncDec = ({ className, increment, decrement, ...restProps }) => {
 
   return (
     <InputIncDecWrapper className={addAllClasses.join(' ')}>
-      <button className="btn decBtn" type="button" onClick={decrement}>
+      <button className="btn decBtn" type="button" onClick={() => decrement()}>
         <MinusOutlined />
       </button>
       <Input className="qnt-input" type="number" {...restProps} />
-      <button className="btn incBtn" type="button" onClick={increment}>
+      <button className="btn incBtn" type="button" onClick={() => increment()}>
         <PlusOutlined />
       </button>
     </InputIncDecWrapper>

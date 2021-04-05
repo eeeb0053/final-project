@@ -74,7 +74,7 @@ const SignUpForm = () => {
         type="submit"
         size="large"
         style={{ width: '100%' }} 
-        onClick={ register }>
+        onClick={ e => register() }>
           <MdLockOpen />Register
         </Button>
     </form>

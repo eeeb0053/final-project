@@ -41,8 +41,7 @@ const SocialLogin = () => {
             type="primary"
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
-            // onClick={() => handleSocialAuth('facebook')}
-            onClick={() => setCount(i => i + 1)}
+            onClick={() => handleSocialAuth('facebook')}
           >
             Facebook (+1)
           </Button>
@@ -54,8 +53,7 @@ const SocialLogin = () => {
             type="primary"
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
-            // onClick={() => handleSocialAuth('github')}
-            onClick={() => setCount(i => i - 1)}
+            onClick={() => handleSocialAuth('github')}
           >
             Github (-1)
           </Button>

@@ -5,8 +5,9 @@ const Wrapper = styled.div`
   display: flex;
   align: center;
   flex-wrap: wrap;
-  width: 85%;
-  padding: 150px;
+  width: 70%;
+  margin-left: 200px;
+  margin-top: 50px;
 
   .container {
     height: 100%;
@@ -45,6 +46,7 @@ const Wrapper = styled.div`
     color: #b00000;
     cursor: pointer;
   }
+
 `;
 
 export const FieldWrapper = styled.div`
@@ -98,15 +100,16 @@ export const SwitchWrapper = styled.div`
 `;
 
 export const Label = styled.span`
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1;
   font-weight: 700;
-  color: ${themeGet('text.0', '#2C2C2C')};
+  margin-bottom: 10px;
+  color: ${themeGet('text.0', '#333333')};
   padding: 0 1px;
 `;
 
 export const Title = styled.h2`
-  color: ${themeGet('text.4', '#777777')};
+  color: ${themeGet('text.4', '#333333')};
   font-size: 22px;
   line-height: 54px;
   font-weight: 700;
@@ -137,11 +140,11 @@ export const Title2 = styled.h2`
 `;
 
 export const TitleInfo = styled.p`
-  color: ${themeGet('text.2', '#777777')};
-  font-size: 16px;
+  color: ${themeGet('text.2', '#333333')};
+  font-size: 15px;
   line-height: 30px;
   margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
   @media (max-width: 1600px) {
     font-size: 16px;
   }
@@ -171,20 +174,11 @@ export const TextInfo = styled.p`
 `;
 
 export const Text = styled.p`
-  text-align: left;
-  font-size: 17px;
-  font-weight: 700;
-  color: ${themeGet('text.2', '#777777')};
+  font-size: 18px;
   line-height: 1;
-  a {
-    color: ${themeGet('primary.0', '#616266')};
-    &:hover,
-    &:focus {
-      outline: none;
-      color: #616266d1;
-      text-decoration: none;
-    }
-  }
+  font-weight: 700;
+  color: ${themeGet('text.0', '#333333')};
+  padding: 0 1px;
 `;
 
 
@@ -236,15 +230,49 @@ export const DescriptionWrapper = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 100%;
+  width: 90%;
+  height: 30px;
   margin-bottom: 15px;
   margin-top: 5px;
-  border: 1px solid #616266;
-  border-radius: 3px; 
+  border: 1px solid #7d7d7d;
+  border-radius: 3px;
   outline: 0px;
 
   &:hover {
-    border: 1px solid green;
+    border: 1px solid #386111;
   }
 `
+export const Checkbox = styled.input`
+  margin-right: 4px;
+`
+
+export const Button = styled.button`
+  width: 100%;
+  border: 1px solid #7d7d7d;
+  background: none;
+  color: #7d7d7d;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  height: 50px;
+  line-height: 10px;
+
+  &:hover {
+    color: #386111;
+    border: 1px solid #386111;
+    cursor: pointer;
+  }
+`
+
+export const A = styled.a`
+  color: #7d7d7d;
+  font-weight: 700;
+  text-decoration: underline;
+
+  &:hover {
+    color: #386111;
+    text-decoration: underline;
+  }
+`
+
 export default Wrapper;

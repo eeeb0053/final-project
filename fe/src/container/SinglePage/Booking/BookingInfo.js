@@ -18,7 +18,7 @@ const BookingInfo = ( props ) => {
   const [ exhbnDetail, setexhbnDetail ] = useState([])
   const [ props2 ] = useState([])
 
-  const URL = `http://localhost:8080/exhbns/find/` 
+  const URL = `http://localhost:8080/exhbns/one/` 
 
   useEffect(() => {
     axios.get(URL+props.exhbnNum)

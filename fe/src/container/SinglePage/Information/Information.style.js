@@ -6,7 +6,7 @@ const InformationWrapper = styled.div`
   h2 {
     font-weight: bold;
   }
-  
+
   button {
     font-size: 15px;
     font-weight: 700;
@@ -43,6 +43,12 @@ export const Info = styled.div`
     padding: 0px 50px 0px 0px;
   }
   
+`;
+
+export const Img = styled.img`
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 export default InformationWrapper;

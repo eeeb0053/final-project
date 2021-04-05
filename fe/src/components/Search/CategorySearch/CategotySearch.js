@@ -228,13 +228,13 @@ const CategotySearch = ({ history, location }) => {
 
             <ActionWrapper>
               {countRoom || countGuest ? (
-                <Button type="default" onClick={handleRoomGuestCancel}>
+                <Button type="default" onClick={e => handleRoomGuestCancel()}>
                   Clear
                 </Button>
               ) : (
                 ''
               )}
-              <Button type="primary" onClick={handleRoomGuestApply}>
+              <Button type="primary" onClick={e => handleRoomGuestApply()}>
                 Apply
               </Button>
             </ActionWrapper>
@@ -243,7 +243,7 @@ const CategotySearch = ({ history, location }) => {
       />
       <div className="view_with__popup">
         <div className="popup_handler">
-          <Button type="default" onClick={onSearchReset}>
+          <Button type="default" onClick={e => onSearchReset()}>
             Reset
           </Button>
         </div>

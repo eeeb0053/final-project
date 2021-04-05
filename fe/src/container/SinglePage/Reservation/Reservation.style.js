@@ -22,16 +22,16 @@ export const FieldWrapper = styled.div`
   }
 
   /* date picker component style */
-  .date_picker {
+  .react-datepicker-wrapper {
     margin-bottom: 0;
     > label {
       margin-bottom: 0;
       width: 100%;
     }
-    .DateRangePicker {
+    .react-datepicker__input-container {
       width: 100%;
       input,
-      .DateRangePickerInput {
+      .input-datepicker {
         border: 0;
         width: 100%;
         height: 54px;

@@ -84,7 +84,7 @@ export default withRouter(function Header({ location }) {
             </LogoArea>
             <Button
               className={`hamburg-btn ${state ? 'active' : ''}`}
-              onClick={sidebarHandler}
+              onClick={() => sidebarHandler()}
             >
               <span />
               <span />
@@ -99,7 +99,7 @@ export default withRouter(function Header({ location }) {
               visible={state}
             >
               <CloseDrawer>
-                <button onClick={sidebarHandler}>
+                <button onClick={() => sidebarHandler()}>
                   <IoIosClose />
                 </button>
               </CloseDrawer>

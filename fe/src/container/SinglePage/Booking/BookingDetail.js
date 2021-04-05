@@ -29,13 +29,18 @@ const BookingDetail = ({match, props}) => {
   const handleEditBooking = e => {
     e.preventDefault()
     const del = window.confirm("예매자 정보를 수정하시겠습니까?")
-    const URL_EDIT = `http://localhost:8080/bookings/edit/`
     if(del){
-      axios.put(URL_EDIT+match.params.bookNum,{ 
-        bookEmail, 
-        bookName,
-        bookPnumber
-       })
+      axios({
+        url: 'http://localhost:8080/bookings/update/'+match.params.bookNum,
+        method: 'put',
+        headers: {
+          'Content-Type'  : 'application/json',
+          'Authorization' : 'JWT fefege..'
+        },
+        data: {
+          bookEmail, bookName, bookPnumber
+        }
+      })
       .then(resp => {
         alert(`수정되었습니다.`)
         window.location.reload()
@@ -49,10 +54,17 @@ const BookingDetail = ({match, props}) => {
  
   const handleDeleteBooking = e => {
       const del = window.confirm("예매를 취소하시겠습니까?")
-      const URL_DELETE = `http://localhost:8080/bookings/delete`
       if(del){
-        axios.delete(URL_DELETE, {
-          data: {bookNum: match.params.bookNum}
+        axios({
+          url: 'http://localhost:8080/bookings/delete',
+          method: 'delete',
+          headers: {
+            'Content-Type'  : 'application/json',
+            'Authorization' : 'JWT fefege..'
+          },
+          data: { 
+            bookNum: match.params.bookNum
+          }
         })
         .then(resp => {
           alert(`예매 취소 완료`)
@@ -100,8 +112,8 @@ const BookingDetail = ({match, props}) => {
         </Col>
         <div className="container">
         <Link to={BOOKING_LIST_PAGE}><button className="btn">목록</button></Link>
-        <button className="btn" onClick = { handleEditBooking }>수정</button>
-        <button className="cancle-btn" onClick = { handleDeleteBooking }>예매취소</button>
+        <button className="btn" onClick = { e => handleEditBooking() }>수정</button>
+        <button className="cancle-btn" onClick = { e => handleDeleteBooking() }>예매취소</button>
         </div>
       <Divider> C:ART  |  Seoul Museum of Art </Divider>
     </Wrapper>

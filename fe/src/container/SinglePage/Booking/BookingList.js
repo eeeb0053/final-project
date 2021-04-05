@@ -10,7 +10,7 @@ const BookingList = () => {
   const [bookingList, setBookingList] = useState([])
 
   const URL = 'http://localhost:8080/bookings/all'
-
+  
   useEffect(() => {
     axios.get(URL, )
     .then(resp => {

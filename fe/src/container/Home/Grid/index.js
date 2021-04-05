@@ -1,3 +1,3 @@
-import TopHotelsGrid from './TopHotelsGrid';
-import LuxaryHotelsGrid from './LuxaryHotelsGrid';
-export { TopHotelsGrid, LuxaryHotelsGrid };
+import RecommendExhbn from './RecommendExhbn';
+import PopularExhbn from './PopularExhbn';
+export { RecommendExhbn, PopularExhbn };

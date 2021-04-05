@@ -4,7 +4,7 @@ import { Menu } from 'antd';
 
 import {
   HOME_PAGE,
-  LISTING_POSTS_PAGE,
+  EXHBN_LIST_PAGE,
   AGENT_PROFILE_PAGE,
   PRICING_PLAN_PAGE,
 } from 'settings/constant';
@@ -18,7 +18,7 @@ const MainMenu = ({ className }) => {
         </NavLink>
       </Menu.Item>
       <Menu.Item key="1">
-        <NavLink to={`${LISTING_POSTS_PAGE}`}>Exhibition</NavLink>
+        <NavLink to={`${EXHBN_LIST_PAGE}`}>Exhibition</NavLink>
       </Menu.Item>
       <Menu.Item key="2">
         <NavLink to={`${AGENT_PROFILE_PAGE}`}>Hall</NavLink>

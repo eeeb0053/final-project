@@ -12,7 +12,9 @@ const CardHeader = ({ price, priceStyle, pricePeriodStyle, linkStyle }) => {
       <Heading
         content={
           <Fragment>
-            {price} <Text as="span" content="/ 1매" {...pricePeriodStyle} />
+            {price === '무료' ? price :
+            price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원'}
+            <Text as="span" content="/ 1매" {...pricePeriodStyle} />
           </Fragment>
         }
         {...priceStyle}
@@ -26,7 +28,7 @@ const Reservation = ( props ) => {
     <Card
       className="reservation_sidebar"
       header={<CardHeader price = {props.price} />}
-      content={<RenderReservationForm number={props.number}/>}
+      content={<RenderReservationForm number={props.number} price={props.price}/>}
       footer={
         <p>
         </p>

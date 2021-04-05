@@ -10,28 +10,30 @@ import ListingMap from './ListingMap';
 import FilterDrawer from 'components/Search/MobileSearchView';
 import useWindowSize from 'library/hooks/useWindowSize';
 import useDataApi from 'library/hooks/useDataApi';
-import { SINGLE_POST_PAGE } from 'settings/constant';
+import { EXHBN_DETAIL_PAGE } from 'settings/constant';
 import ListingWrapper, { PostsWrapper, ShowMapCheckbox } from './Listing.style';
 
-const Listing = ({ location, history }) => {
+const HallListing = ({ location, history }) => {
 
-  const [exhbnList, setExhbnList] = useState([])
+  const [exhbn, setExhbn] = useState([])
 
   let url = '/data/hotel.json';
   const { width } = useWindowSize();
   const [showMap, setShowMap] = useState(false);
   const { data, loading, loadMoreData, total, limit } = useDataApi(`http://localhost:8080/exhbns/all`);
   let columnWidth = [1 / 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5];
-  if (location.search) {
-    url += location.search;
-  }
-  if (showMap) {
-    columnWidth = [1 / 1, 1 / 2, 1 / 2, 1 / 2, 1 / 3];
-  }
-  const handleMapToggle = () => {
-    setShowMap((showMap) => !showMap);
-  };
-
+  
+  useEffect(() => {
+    // alert(localStorage.getItem('exhbnTitle'))
+    axios.get("http://localhost:8080/exhbns/search/"+localStorage.getItem('exhbnTitle'), 
+    ).then(resp => {
+      // alert(`성공`)
+      setExhbn(resp.data)
+    }).catch(err => {
+      alert(`err`)
+      throw err
+    })
+  }, [])
 
   return (
     <>
@@ -45,20 +47,13 @@ const Listing = ({ location, history }) => {
               <FilterDrawer history={history} location={location} />
             )
           }
-          right={
-            <ShowMapCheckbox>
-              <Checkbox defaultChecked={false} onChange={handleMapToggle}>
-                Show map
-              </Checkbox>
-            </ShowMapCheckbox>
-          }
         />
       </Sticky>
 
       <Fragment>
         <PostsWrapper className={width > 767 && showMap ? 'col-12' : 'col-24'}>
           <SectionGrid
-            link={SINGLE_POST_PAGE}
+            link={EXHBN_DETAIL_PAGE}
             columnWidth={columnWidth}
             data={data}
             totalItem={total.length}
@@ -75,4 +70,4 @@ const Listing = ({ location, history }) => {
     </>
   );
 }
-export default Listing;
+export default HallListing;

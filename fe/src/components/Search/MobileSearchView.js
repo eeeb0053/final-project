@@ -144,7 +144,7 @@ const FilterDrawer = ({ history, location }) => {
 
   return (
     <FilterArea>
-      <Button className={toggle ? 'active' : ''} onClick={handleToggleDrawer}>
+      <Button className={toggle ? 'active' : ''} onClick={e => handleToggleDrawer()}>
         More filters
       </Button>
       <Drawer
@@ -286,7 +286,7 @@ const FilterDrawer = ({ history, location }) => {
 
           <ButtonGroup>
             <Button onClick={handleCloseDrawer}>Cancel Filter</Button>
-            <Button type="primary" onClick={handleApplyFilter}>
+            <Button type="primary" onClick={e => handleApplyFilter()}>
               Apply Filter
             </Button>
           </ButtonGroup>

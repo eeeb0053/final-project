@@ -5,7 +5,7 @@ import { FiSearch } from 'react-icons/fi';
 import MapAutoComplete from 'components/Map/MapAutoComplete';
 import { setStateToUrl, getStateFromUrl } from 'library/helpers/url_handler';
 import { mapDataHelper } from 'components/Map/mapDataHelper';
-import { LISTING_POSTS_PAGE } from 'settings/constant';
+import { EXHBN_LIST_PAGE } from 'settings/constant';
 import { NavbarSearchWrapper } from './Header.style';
 
 const NavbarSearch = (props) => {
@@ -32,7 +32,7 @@ const NavbarSearch = (props) => {
       };
       const search = setStateToUrl(query);
       props.history.push({
-        pathname: LISTING_POSTS_PAGE,
+        pathname: EXHBN_LIST_PAGE,
         search: search,
       });
     }

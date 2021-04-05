@@ -74,7 +74,7 @@ const SignInForm = () => {
         type="submit"
         size="large"
         style={{ width: '100%' }} 
-        onClick={ login }>
+        onClick={ e => login() }>
           <MdLockOpen />LogIn
         </Button>
     </form>

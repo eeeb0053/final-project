@@ -13,7 +13,8 @@ const BottomReservation = ({ title, price, rating, ratingCount }) => {
       <StickyBooking
         logo="/images/cartlogo.png"
         title={title}
-        price={price}
+        price={price === '무료' ? price :
+               price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원'}
         rating={
           <Rating rating={rating} ratingCount={ratingCount} type="bulk" />
         }

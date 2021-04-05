@@ -17,11 +17,13 @@ import com.example.demo.anl.domain.Analysis;
 import com.example.demo.bkg.domain.Booking;
 import com.example.demo.hal.domain.Hall;
 import com.example.demo.rev.domain.Review;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
+import lombok.Setter;
 
 
-@Entity @Getter @Table(name = "exhbns")
+@Entity @Getter @Table(name = "exhbns") @Setter @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Exhbn {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "exhbn_num") private long exhbnNum;
