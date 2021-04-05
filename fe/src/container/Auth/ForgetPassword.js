@@ -25,8 +25,8 @@ export default function ForgetPassWord() {
         <Logo
           withLink
           linkTo="/"
-          src="/images/cartlogo.png"
-          title=""
+          src=""
+          title="TripFinder."
         />
         <Title>Welcome Back</Title>
         <TitleInfo>Enter your email to recover your account</TitleInfo>

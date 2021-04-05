@@ -48,7 +48,7 @@ const SinglePage = ({ match }) => {
     e.preventDefault()
     window.confirm("전시를 삭제하시겠습니까?")
     axios({
-      url: 'http://localhost:8080/exhbns/delete',
+      url: 'http://localhost:8080/exhbns',
       method: 'delete',
       headers: {
         'Content-Type'  : 'application/json',

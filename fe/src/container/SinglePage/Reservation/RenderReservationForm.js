@@ -17,7 +17,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const RenderReservationForm = ( props ) => {
-  const [bookDate, setBookDate] = useState(new Date());
+  const [bookdate, setBookdate] = useState(new Date());
   const [tickets, setTickets] = useState(0);
 
   const handleIncrement = (tickets) => {
@@ -43,8 +43,8 @@ const RenderReservationForm = ( props ) => {
         <HtmlLabel htmlFor="dates" content="날짜" />
         <DatePicker
           dateFormat="yyyy-MM-dd"
-          selected={bookDate}
-          onChange={date => setBookDate(date)}
+          selected={bookdate}
+          onChange={date => setBookdate(date)}
           minDate={new Date()}
         />
       </FieldWrapper>
@@ -63,7 +63,7 @@ const RenderReservationForm = ( props ) => {
       <FormActionArea>
         <Link to={`${BOOKING_PAGE}/${props.number}`}>
         <Button htmlType="submit" type="primary" 
-                tickets={tickets} bookDate={bookDate} price={props.price}>
+                tickets={tickets} bookDate={bookdate} price={props.price}>
           예매하기
         </Button>
         </Link>

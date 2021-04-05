@@ -13,7 +13,7 @@ import {
 } from '../../../settings/constant';
 
 const PopularExhbn = () => {
-  const { data, loading } = useDataApi('http://localhost:8080/exhbns/all');
+  const { data, loading } = useDataApi('http://localhost:8080/exhbns');
   const { width } = useWindowSize();
 
   let posts = data;

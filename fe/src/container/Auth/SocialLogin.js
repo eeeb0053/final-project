@@ -4,12 +4,12 @@ import { Row, Col, Button } from 'antd';
 import { AuthContext } from 'context/AuthProvider';
 
 const SocialLogin = () => {
-  const [ count, setCount ] = useState(0);
+  const [count, setCount] = useState(0)
   const { signUp, loggedIn } = useContext(AuthContext);
   const [state, setState] = useState({
     facebook: false,
     github: false,
-    firebase: false,
+    Naver: false,
     google: false,
   });
   const handleSocialAuth = (key) => {
@@ -31,7 +31,6 @@ const SocialLogin = () => {
 
   return (
     <>
-    <h2>{count}</h2>
     <div>
       <Row gutter={16}>
         <Col span={12}>
@@ -41,9 +40,10 @@ const SocialLogin = () => {
             type="primary"
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
-            onClick={() => handleSocialAuth('facebook')}
+            /*onClick={() => handleSocialAuth('facebook')}*/
+            onClick={()=> setCount(i => i + 1) }
           >
-            Facebook (+1)
+            Facebook
           </Button>
         </Col>
         <Col span={12}>
@@ -53,23 +53,24 @@ const SocialLogin = () => {
             type="primary"
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
-            onClick={() => handleSocialAuth('github')}
+           /* onClick={() => handleSocialAuth('github')}*/
+           onClick={()=> setCount(i => i - 1) }
           >
-            Github (-1)
+            Github
           </Button>
         </Col>
       </Row>
       <Row gutter={16} style={{ marginBottom: '37px' }}>
         <Col span={12}>
           <Button
-            loading={state.firebase}
-            className="firebase-btn"
+            loading={state.Naver}
+            className="Naver-btn"
             type="primary"
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
-            onClick={() => handleSocialAuth('firebase')}
+            onClick={() => handleSocialAuth('Naver')}
           >
-            Firebase
+            Naver
           </Button>
         </Col>
         <Col span={12}>

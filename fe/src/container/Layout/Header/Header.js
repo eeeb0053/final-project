@@ -64,7 +64,7 @@ export default withRouter(function Header({ location }) {
             avatar={<Logo src={avatarImg} />}
             profileMenu={<ProfileMenu avatar={<Logo src={avatarImg} />} />}
             headerType={headerType}
-            searchComponent={<NavbarSearch />}
+            // searchComponent={<NavbarSearch />}
             location={location}
             searchVisibility={searchVisibility}
           />
@@ -80,7 +80,6 @@ export default withRouter(function Header({ location }) {
                   title=""
                 />
               </>
-              <NavbarSearch />
             </LogoArea>
             <Button
               className={`hamburg-btn ${state ? 'active' : ''}`}

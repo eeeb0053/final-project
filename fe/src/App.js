@@ -168,7 +168,7 @@ const routes = [
     component: Loadable({
       loader: () =>
         import(
-          /* webpackChunkName: "ExbhnDetail" */ './container/SinglePage/ExhbnDetail'
+          /* webpackChunkName: "ExbhnDetail" */ './container/HallPage/HallDetail'
         ),
       loading: Loading,
       modules: ['HallDetail'],

@@ -41,7 +41,7 @@ const AddExhbn = ({ setStep, match }) => {
     e.preventDefault()
     window.confirm("전시를 수정하시겠습니까?")
     axios({
-      url: 'http://localhost:8080/exhbns/update/'+match.params.exhbnNum,
+      url: 'http://localhost:8080/exhbns/'+match.params.exhbnNum,
       method: 'put',
       headers: {
         'Content-Type'  : 'application/json',

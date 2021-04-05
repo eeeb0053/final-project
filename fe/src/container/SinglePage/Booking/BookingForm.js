@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { MdLockOpen } from 'react-icons/md';
@@ -14,13 +14,13 @@ import Consent from '../Notice/Consent';
 import axios from 'axios';
 
 const BookingForm = ( props ) => {
-  const { price, bookDate, tickets } = props;
+  const { price, bookdate, tickets } = props;
   const [ bookName, setBookName ] = useState('')
   const [ bookEmail, setBookEmail ] = useState('')
   const [ bookPnumber, setBookPnumber ] = useState('')
   const [ isModalVisible, setIsModalVisible ] = useState(false);
 
-  const URL = 'http://localhost:8080/bookings/add'
+  const URL = 'http://localhost:8080/bookings'
 
   const booking = e => {
     axios.post(URL, {
@@ -47,6 +47,12 @@ const BookingForm = ( props ) => {
     setIsModalVisible(false);
   };
 
+  useEffect(() => {
+    alert(price)
+    alert(bookdate)
+    alert(tickets)
+  }, [])
+
   return (
     <form> 
       <div>
@@ -67,7 +73,7 @@ const BookingForm = ( props ) => {
           onChange = { e => { setBookPnumber(`${e.target.value}`) }}/>
       </div><br/>
         <Label>예매정보</Label>
-        <TitleInfo> {bookDate} 2021-03-15 (월), 총 1매 - 대인 1매</TitleInfo>
+        <TitleInfo> {bookdate} 2021-03-15 (월), 총 1매 - 대인 1매</TitleInfo>
         <Divider/>
         <Text>합계</Text>
         <TitleInfo>{price === '무료' ? '0원' :

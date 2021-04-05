@@ -31,7 +31,7 @@ const BookingInfo = ( props ) => {
     })
   }, [])
 
-  // const { data, loading } = useDataApi(`http://localhost:8080/exhbns/all`);
+  // const { data, loading } = useDataApi(`http://localhost:8080/exhbns`);
 
   if (isEmpty(exhbnDetail)) return <Loader />;
   

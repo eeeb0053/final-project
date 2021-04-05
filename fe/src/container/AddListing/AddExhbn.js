@@ -27,7 +27,7 @@ const AddExhbn = ({ setStep }) => {
     e.preventDefault()
     const formData = new FormData();
     axios({
-      url: 'http://localhost:8080/exhbns/save', 
+      url: 'http://localhost:8080/exhbns', 
       method: 'post',
       headers: {
         'Content-Type'  : 'application/json',

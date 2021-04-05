@@ -5,16 +5,16 @@ import { Button, Modal } from 'antd';
 import StickyBooking from 'components/StickyBooking/StickyBooking';
 import Reservation from './Reservation';
 
+
 const BottomReservation = ({ title, price, rating, ratingCount }) => {
   const [visible, setVisible] = useState(false);
-
   return (
     <>
       <StickyBooking
         logo="/images/cartlogo.png"
         title={title}
-        price={price === '무료' ? price :
-               price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원'}
+        price={price === '무료' || price === '' ? '무료' :
+               price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원'}
         rating={
           <Rating rating={rating} ratingCount={ratingCount} type="bulk" />
         }

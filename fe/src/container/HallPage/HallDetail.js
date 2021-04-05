@@ -17,14 +17,14 @@ const HallDetail = ({ match }) => {
   const [isModalShowing, setIsModalShowing] = useState(false);
   const { width } = useWindowSize();
   const [ props ] = useState([])
-  const [ hallDetail, sethallDetail ] = useState([])
+  const [ hallDetail, setHallDetail ] = useState([])
 
   const URL = `http://localhost:8080/halls/find/`
 
   useEffect(() => {
     axios.get(URL+match.params.hallNum)
     .then(resp => {
-      sethallDetail(resp.data)
+      setHallDetail(resp.data)
     })
     .catch(err => {
       alert(`전시관 진입 실패`)

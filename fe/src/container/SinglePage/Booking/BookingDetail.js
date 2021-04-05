@@ -31,7 +31,7 @@ const BookingDetail = ({match, props}) => {
     const del = window.confirm("예매자 정보를 수정하시겠습니까?")
     if(del){
       axios({
-        url: 'http://localhost:8080/bookings/update/'+match.params.bookNum,
+        url: 'http://localhost:8080/bookings/'+match.params.bookNum,
         method: 'put',
         headers: {
           'Content-Type'  : 'application/json',
@@ -56,7 +56,7 @@ const BookingDetail = ({match, props}) => {
       const del = window.confirm("예매를 취소하시겠습니까?")
       if(del){
         axios({
-          url: 'http://localhost:8080/bookings/delete',
+          url: 'http://localhost:8080/bookings',
           method: 'delete',
           headers: {
             'Content-Type'  : 'application/json',

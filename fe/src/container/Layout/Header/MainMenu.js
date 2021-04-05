@@ -5,8 +5,8 @@ import { Menu } from 'antd';
 import {
   HOME_PAGE,
   EXHBN_LIST_PAGE,
-  AGENT_PROFILE_PAGE,
-  PRICING_PLAN_PAGE,
+  HALL_DETAIL_PAGE,
+  ADD_EXHBN_PAGE,
 } from 'settings/constant';
 
 const MainMenu = ({ className }) => {
@@ -21,10 +21,10 @@ const MainMenu = ({ className }) => {
         <NavLink to={`${EXHBN_LIST_PAGE}`}>Exhibition</NavLink>
       </Menu.Item>
       <Menu.Item key="2">
-        <NavLink to={`${AGENT_PROFILE_PAGE}`}>Hall</NavLink>
+        <NavLink to={`${HALL_DETAIL_PAGE}/1`}>Hall</NavLink>
       </Menu.Item>
       <Menu.Item key="3">
-        <NavLink to={`${PRICING_PLAN_PAGE}`}>MyPage</NavLink>
+        <NavLink to={`${ADD_EXHBN_PAGE}`}>MyPage</NavLink>
       </Menu.Item>
     </Menu>
   );

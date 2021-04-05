@@ -41,7 +41,7 @@ const HotelPhotos = ({ setStep }) => {
   const [ exhbnImage, setExhbnImage ] = useState('')
   const { action, state } = useStateMachine(AddListingAction);
 
-  const URL = 'http://localhost:8080/exhbns/save'
+  const URL = 'http://localhost:8080/exhbns'
 
   const add = e => {
     e.preventDefault()

@@ -3,19 +3,16 @@ import { themeGet } from '@styled-system/theme-get';
 
 const ReviewWrapper = styled.div`
   padding: 29px 0;
-
   .ant-row {
     margin-bottom: -29px;
     > div {
       margin-bottom: 29px;
     }
   }
-
   /* comment area style */
   .comment-area {
     .comment-wrapper {
       padding: 20px 0;
-
       /* comment header style */
       .comment-header {
         width: 100%;
@@ -73,7 +70,6 @@ const ReviewWrapper = styled.div`
           }
         }
       }
-
       /* comment body style */
       .comment-body {
         h4 {
@@ -95,7 +91,6 @@ const ReviewWrapper = styled.div`
           margin-bottom: 19px;
         }
       }
-
       /* comment rating style */
       .comment-rating {
         display: flex;
@@ -108,7 +103,6 @@ const ReviewWrapper = styled.div`
           flex-direction: column;
           align-items: flex-start;
         }
-
         .rating-widget {
           display: flex;
           align-items: center;
@@ -142,7 +136,6 @@ export const FilterElement = styled.div`
   &:last-child {
     margin-bottom: 0;
   }
-
   /* checkbox component style */
   .ant-checkbox-wrapper {
     width: 100%;
@@ -220,7 +213,6 @@ export const RatingStatus = styled.div`
 export const RatingSearch = styled.div`
   display: flex;
   flex-wrap: wrap;
-
   /* input search style */
   .ant-input-search {
     width: calc(100% - 165px);
@@ -240,13 +232,11 @@ export const RatingSearch = styled.div`
       border-color: ${themeGet('border.3', '#E6E6E6')};
     }
   }
-
   .ant-input-affix-wrapper:focus,
   .ant-input-affix-wrapper-focused {
     border-color: ${themeGet('border.3', '#E6E6E6')};
     box-shadow: 0 0 0 1px rgba(0, 132, 137, 0.2);
   }
-
   /* button style */
   button {
     &.ant-btn {
@@ -390,7 +380,6 @@ export const Form = styled.form`
         }
       }
     }
-
     /* uploaded image style */
     .ant-upload-list {
       padding-top: 15px;
@@ -426,7 +415,6 @@ export const Form = styled.form`
       }
     }
   }
-
   .ant-checkbox-wrapper {
     .ant-checkbox {
       + span {
@@ -434,7 +422,6 @@ export const Form = styled.form`
       }
     }
   }
-
   .submit-container {
     margin-top: 40px;
     margin-bottom: 0;

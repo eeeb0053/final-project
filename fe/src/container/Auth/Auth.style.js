@@ -65,7 +65,7 @@ export const FormWrapper = styled.div`
   .ant-btn {
     &.facebook-btn,
     &.github-btn,
-    &.firebase-btn,
+    &.Naver-btn,
     &.google-btn {
       height: 57px;
       border-radius: 3px;
@@ -83,9 +83,9 @@ export const FormWrapper = styled.div`
       border-color: ${themeGet('color.14', '#00ACEE')};
       background-color: ${themeGet('color.14', '#00ACEE')};
     }
-    &.firebase-btn {
-      border-color: ${themeGet('color', '#FFCB2B')};
-      background-color: ${themeGet('color', '#FFCB2B')};
+    &.Naver-btn {
+      border-color: ${themeGet('color', '#1DDB16')};
+      background-color: ${themeGet('color', '#1DDB16')};
     }
     &.google-btn {
       border-color: ${themeGet('color.10', '#dd4b39')};

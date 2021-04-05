@@ -20,7 +20,7 @@ const HallListing = ({ location, history }) => {
   let url = '/data/hotel.json';
   const { width } = useWindowSize();
   const [showMap, setShowMap] = useState(false);
-  const { data, loading, loadMoreData, total, limit } = useDataApi(`http://localhost:8080/exhbns/all`);
+  const { data, loading, loadMoreData, total, limit } = useDataApi(`http://localhost:8080/exhbns`);
   let columnWidth = [1 / 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5];
   
   useEffect(() => {

@@ -33,7 +33,7 @@ const Information = ({
               <Rating rating={rating} ratingCount={ratingCount} type="bulk" />
           </RatingMeta>
           <ul>
-              <li><strong>가격</strong> <span>{price === '무료' ? price :
+              <li><strong>가격</strong> <span>{price === '무료' || price === '' ? '무료' :
                price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원'}</span></li><br />
               <li><strong>장소</strong> <span>{location}</span></li><br />
               <li><strong>기간</strong> <span>{start} ~ {end}</span></li><br />

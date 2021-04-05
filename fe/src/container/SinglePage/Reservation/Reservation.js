@@ -12,8 +12,8 @@ const CardHeader = ({ price, priceStyle, pricePeriodStyle, linkStyle }) => {
       <Heading
         content={
           <Fragment>
-            {price === '무료' ? price :
-            price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원'}
+            {price === '무료' || price === '' ? '무료' :
+            price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원'}
             <Text as="span" content="/ 1매" {...pricePeriodStyle} />
           </Fragment>
         }

@@ -42,7 +42,7 @@ const carouselOptions = {
 };
 
 const LocationGrid = () => {
-  const { data } = useDataApi('http://localhost:8080/halls/all');
+  const { data } = useDataApi('http://localhost:8080/halls');
 
   return (
     <LocationWrapper>

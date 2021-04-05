@@ -74,7 +74,10 @@ return (
                 <ul>
                     <li><strong>장소</strong> <span>{location}</span></li>
                     <li><strong>기간</strong> <span>{start} ~ {end}</span></li>
-                    <li><strong>가격</strong> <span>{price}</span></li>
+                    <li><strong>가격</strong> <span>
+                      {price === '무료' || price === '' ? '무료' :
+                       price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원'}
+                    </span></li>
                     <li><strong>장르</strong> <span>{genre}</span></li>
                     <li><strong>작가</strong> <span>{artist}</span></li>
                 </ul>
