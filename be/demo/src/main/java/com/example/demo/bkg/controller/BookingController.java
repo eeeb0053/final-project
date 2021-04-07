@@ -30,7 +30,7 @@ public class BookingController extends AbstractController<Booking>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final BookingServiceImpl service;
 	
-	@PostMapping("/add")
+	@PostMapping("")
 	public ResponseEntity<Long> save(@RequestBody Booking t) {
 		return ResponseEntity.ok(service.save(t));
 	}
@@ -42,7 +42,7 @@ public class BookingController extends AbstractController<Booking>{
 		logger.info("수정 정보: "+ bookName + bookEmail + bookPnumber + bookNum);
 		return ResponseEntity.ok(service.update(bookName, bookEmail, bookPnumber, bookNum)); 
 	}
-	@PutMapping("/edit/{bookNum}")
+	@PutMapping("/{bookNum}")
 	public ResponseEntity<Long> edit(@RequestBody Booking t, @PathVariable long bookNum){
 		logger.info("수정 정보: "+t.toString());
 		Booking b = service.findByBookNum(bookNum);
@@ -57,7 +57,7 @@ public class BookingController extends AbstractController<Booking>{
 		}
 		return ResponseEntity.ok(service.save(b));
 	}
-	@DeleteMapping("/delete")
+	@DeleteMapping("")
 	public ResponseEntity<Long> delete(@RequestBody Booking t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
@@ -65,7 +65,7 @@ public class BookingController extends AbstractController<Booking>{
 	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
-	@GetMapping("/all")
+	@GetMapping("")
 	public ResponseEntity<List<Booking>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}

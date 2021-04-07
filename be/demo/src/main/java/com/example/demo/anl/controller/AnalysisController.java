@@ -22,7 +22,7 @@ import com.example.demo.anl.service.AnalysisServiceImpl;
 import com.example.demo.cmm.controller.AbstractController;
 
 @RestController @RequiredArgsConstructor @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/analysis")
+@RequestMapping("/analyses")
 public class AnalysisController extends AbstractController<Analysis>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final AnalysisServiceImpl service;
@@ -55,4 +55,5 @@ public class AnalysisController extends AbstractController<Analysis>{
 	public ResponseEntity<Boolean> existsById(@PathVariable long id) {
 		return ResponseEntity.ok(service.existsById(id));
 	}
+
 }

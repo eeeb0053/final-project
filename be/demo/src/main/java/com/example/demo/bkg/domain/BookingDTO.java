@@ -1,5 +1,7 @@
 package com.example.demo.bkg.domain;
 
+import java.util.Date;
+
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +12,7 @@ public class BookingDTO {
 	private long bookNum;
 	private long exhbnNum;
 	private long userNum;
-	private String bookDate;
+	private Date bookDate;
 	private String totalPrice;
 	private String bookName;
 	private String bookEmail;

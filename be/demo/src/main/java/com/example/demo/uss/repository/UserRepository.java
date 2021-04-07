@@ -11,10 +11,5 @@ interface UserCustomRepository{
 	
 }
 public interface UserRepository extends JpaRepository<User, Long>, UserCustomRepository {
-	public Optional<User> findByEmail(String email);
-    public Optional<User> findByUseridOrEmail(String userid, String email);
-    public List<User> findByUserNumIn(List<Long> userNums);
-    public Optional<User> findByUserid(String userid);
-    public Boolean existsByUserid(String userid);
-    public Boolean existsByEmail(String email);
+
 }

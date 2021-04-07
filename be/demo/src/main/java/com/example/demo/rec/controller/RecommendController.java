@@ -27,11 +27,11 @@ public class RecommendController extends AbstractController<Recommend>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final RecommendServiceImpl service;
 	
-	@PostMapping("/save")
+	@PostMapping("")
 	public ResponseEntity<Long> save(@RequestBody Recommend t) {
 		return ResponseEntity.ok(service.save(t));
 	}
-	@DeleteMapping("/delete")
+	@DeleteMapping("")
 	public ResponseEntity<Long> delete(@RequestBody Recommend t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
@@ -39,7 +39,7 @@ public class RecommendController extends AbstractController<Recommend>{
 	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
-	@GetMapping("/all")
+	@GetMapping("")
 	public ResponseEntity<List<Recommend>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}

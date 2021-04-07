@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.example.demo.cmm.controller.AbstractController;
 import com.example.demo.exh.domain.Exhbn;
+import com.example.demo.exh.domain.ExhbnDTO;
 import com.example.demo.exh.service.ExhbnServiceImpl;
 import com.example.demo.hal.domain.Hall;
 
@@ -31,15 +32,15 @@ public class ExhbnController extends AbstractController<Exhbn> {
 	final ExhbnServiceImpl service;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@PostMapping("/save")
+	@PostMapping("")
 	public ResponseEntity<Long> save(@RequestBody Exhbn t) {
 		return ResponseEntity.ok(service.save(t));
 	}
 	
-	@PutMapping("/update/{exhbnNum}")
+	@PutMapping("/{exhbnNum}")
 	public ResponseEntity<Long> update(@RequestBody Exhbn t, @PathVariable long exhbnNum) {
 		logger.info("수정 정보: "+t.toString());
-		Exhbn e = service.findByExhbnNum(exhbnNum);
+		Exhbn e = service.getOne(exhbnNum);
 		if(!(t.getExhbnTitle().equals(e.getExhbnTitle()) || t.getExhbnTitle().equals(""))) {
 			e.setExhbnTitle(t.getExhbnTitle());
 		}
@@ -70,7 +71,7 @@ public class ExhbnController extends AbstractController<Exhbn> {
 		return ResponseEntity.ok(service.save(t));
 	}
 	
-	@DeleteMapping("/delete")
+	@DeleteMapping("")
 	public ResponseEntity<Long> delete(@RequestBody Exhbn t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
@@ -95,13 +96,28 @@ public class ExhbnController extends AbstractController<Exhbn> {
 		return ResponseEntity.ok(service.existsById(id));
 	}
 
-	@GetMapping("/all")
+	@GetMapping("")
 	public ResponseEntity<List<Exhbn>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}
 
-	@GetMapping("/find/{exhbnNum}")
-	public ResponseEntity<Exhbn> findByExhbnNum(long exhbnNum) {
-		return ResponseEntity.ok(service.findByExhbnNum(exhbnNum));
+	@GetMapping("/search/{exhbnTitle}")
+	public ResponseEntity<List<Exhbn>> searchTitle(@PathVariable String exhbnTitle){
+		return ResponseEntity.ok(service.searchTitle(exhbnTitle));
+	}
+	
+	@GetMapping("/all")
+	public ResponseEntity<List<Exhbn>> sortList(){
+		return ResponseEntity.ok(service.sortList());
+	}
+	
+	@GetMapping("/now")
+	public ResponseEntity<List<Exhbn>> nowInExhbn(){
+		return ResponseEntity.ok(service.nowInExhbn());
+	}
+	
+	@GetMapping("/top10")
+	public ResponseEntity<List<ExhbnDTO>> top10(){
+		return ResponseEntity.ok(service.top10());
 	}
 }

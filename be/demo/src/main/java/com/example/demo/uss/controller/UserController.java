@@ -27,17 +27,17 @@ public class UserController extends AbstractController<User>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final UserServiceImpl service;
 	
-	@PostMapping("/add")
+	@PostMapping("/singup")
 	public ResponseEntity<Long> save(@RequestBody User t) {
 		logger.info("회원 가입정보"+t.toString());
 		return ResponseEntity.ok(service.save(t));
 	}
-	@PostMapping("/login")
+	@PostMapping("/signin")
 	public ResponseEntity<Long> login(@RequestBody User t) {
 		logger.info("회원 로그인정보"+t.toString());
 		return ResponseEntity.ok(service.save(t));
 	}
-	@DeleteMapping("/delete")
+	@DeleteMapping("")
 	public ResponseEntity<Long> delete(@RequestBody User t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
@@ -45,7 +45,7 @@ public class UserController extends AbstractController<User>{
 	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
-	@GetMapping("/all")
+	@GetMapping("")
 	public ResponseEntity<List<User>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}

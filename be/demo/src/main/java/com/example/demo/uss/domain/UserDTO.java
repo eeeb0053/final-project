@@ -9,9 +9,9 @@ import lombok.Getter;
 @Component @Lazy @Getter
 public class UserDTO{
 	private long userNum;
-	private String userid;
-	private String password;
 	private String username;
+	private String password;
+	private String name;
 	private String email;
 	private String gender;
 	private String birthday;

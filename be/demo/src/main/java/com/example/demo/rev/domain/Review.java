@@ -1,5 +1,7 @@
 package com.example.demo.rev.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +22,7 @@ public class Review {
 	@Column(name = "review_num") private long reviewNum;
 	@Column(name = "review_title") private String reviewTitle;
 	@Column(name = "review_content") private String reviewContent;
-	@Column(name = "reg_date") private String regDate;
+	@Column(name = "reg_date") private Date regDate;
 	@Column private String score;
 	
 	@ManyToOne

@@ -26,11 +26,11 @@ public class ReviewController extends AbstractController<Review>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final ReviewServiceImpl service;
 	
-	@PostMapping("/save")
+	@PostMapping("")
 	public ResponseEntity<Long> save(@RequestBody Review t) {
 		return ResponseEntity.ok(service.save(t));
 	}
-	@DeleteMapping("/delete")
+	@DeleteMapping("")
 	public ResponseEntity<Long> delete(@RequestBody Review t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
@@ -38,7 +38,7 @@ public class ReviewController extends AbstractController<Review>{
 	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
-	@GetMapping("/all")
+	@GetMapping("")
 	public ResponseEntity<List<Review>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}

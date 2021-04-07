@@ -2,6 +2,8 @@ package com.example.demo.rev.domain;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
+import java.util.Date;
+
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
@@ -24,7 +26,7 @@ public class QReview extends EntityPathBase<Review> {
 
     public final com.example.demo.exh.domain.QExhbn exhbn;
 
-    public final StringPath regDate = createString("regDate");
+    public final DatePath<Date> regDate = createDate("regDate", Date.class);
 
     public final StringPath reviewContent = createString("reviewContent");
 

@@ -1,6 +1,8 @@
 package com.example.demo.bkg.domain;
 
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +23,7 @@ import lombok.EqualsAndHashCode;
 public class Booking {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name = "book_num") private long bookNum;
-	@Column(name = "book_date") private String bookDate;
+	@Column(name = "book_date") private Date bookDate;
 	@Column(name = "total_price") private String totalPrice;
 	@Column(name = "book_name") private String bookName;
 	@Column(name = "book_email") private String bookEmail;

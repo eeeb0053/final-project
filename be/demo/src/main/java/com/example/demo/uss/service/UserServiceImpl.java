@@ -25,17 +25,5 @@ public class UserServiceImpl extends AbstractService<User>{
 	@Override public User getOne(long id) { return repo.getOne(id);}
 	@Override public Optional<User> findById(long id){ return repo.findById(id);}
 	@Override public boolean existsById(long id) { return repo.existsById(id);}
-	/*
-	@Override
-	public UserDetails loadUserByUsername(String useridOrEmail) throws UsernameNotFoundException {
-		return UserDTO.create(repo.findByUseridOrEmail(useridOrEmail, useridOrEmail)
-				.orElseThrow(() -> new UsernameNotFoundException("아이디나 이메일을 찾을 수 없습니다.")));
-	}
-	@Transactional
-	public UserDetails loadUserById(Long id) {
-		User user = repo.findById(id)
-				.orElseThrow(() -> new UsernameNotFoundException("User not found with id : " + id));
-		return UserDTO.create(user);
-	} */
-
+	
 }

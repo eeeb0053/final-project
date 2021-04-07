@@ -27,11 +27,11 @@ public class HallController extends AbstractController<Hall>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final HallServiceImpl service;
 	
-	@PostMapping("/save")
+	@PostMapping("")
 	public ResponseEntity<Long> save(@RequestBody Hall t) {
 		return ResponseEntity.ok(service.save(t));
 	}
-	@DeleteMapping("/delete")
+	@DeleteMapping("")
 	public ResponseEntity<Long> delete(@RequestBody Hall t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
@@ -39,7 +39,7 @@ public class HallController extends AbstractController<Hall>{
 	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
-	@GetMapping("/all")
+	@GetMapping("")
 	public ResponseEntity<List<Hall>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}
@@ -58,9 +58,5 @@ public class HallController extends AbstractController<Hall>{
 	@GetMapping("find/{name}/{location}")
 	public ResponseEntity<List<Hall>> findByNameAndLocation(@PathVariable String name, String location) {
 		return ResponseEntity.ok(service.findByHallNameAndHallLocation(name, location));
-	}
-	@GetMapping("/find/{location}")
-	public ResponseEntity<List<Hall>> findByHallLocation(@PathVariable String location) {
-		return ResponseEntity.ok(service.findByHallLocation(location));
 	}
 }

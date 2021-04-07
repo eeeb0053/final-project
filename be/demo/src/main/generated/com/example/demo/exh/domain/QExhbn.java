@@ -2,6 +2,8 @@ package com.example.demo.exh.domain;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
+import java.util.Date;
+
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
@@ -26,7 +28,7 @@ public class QExhbn extends EntityPathBase<Exhbn> {
 
     public final ListPath<com.example.demo.bkg.domain.Booking, com.example.demo.bkg.domain.QBooking> bookingList = this.<com.example.demo.bkg.domain.Booking, com.example.demo.bkg.domain.QBooking>createList("bookingList", com.example.demo.bkg.domain.Booking.class, com.example.demo.bkg.domain.QBooking.class, PathInits.DIRECT2);
 
-    public final StringPath endDate = createString("endDate");
+    public final DatePath<Date> endDate = createDate("endDate", Date.class);
 
     public final StringPath exhbnArtist = createString("exhbnArtist");
 
@@ -46,7 +48,7 @@ public class QExhbn extends EntityPathBase<Exhbn> {
 
     public final ListPath<com.example.demo.rev.domain.Review, com.example.demo.rev.domain.QReview> reviewList = this.<com.example.demo.rev.domain.Review, com.example.demo.rev.domain.QReview>createList("reviewList", com.example.demo.rev.domain.Review.class, com.example.demo.rev.domain.QReview.class, PathInits.DIRECT2);
 
-    public final StringPath startDate = createString("startDate");
+    public final DatePath<Date> startDate = createDate("startDate", Date.class);
 
     public QExhbn(String variable) {
         this(Exhbn.class, forVariable(variable), INITS);

@@ -2,6 +2,8 @@ package com.example.demo.bkg.domain;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
+import java.sql.Date;
+
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
@@ -22,7 +24,7 @@ public class QBooking extends EntityPathBase<Booking> {
 
     public static final QBooking booking = new QBooking("booking");
 
-    public final StringPath bookDate = createString("bookDate");
+    public final DatePath<Date> bookDate = createDate("bookDate", Date.class);
 
     public final StringPath bookEmail = createString("bookEmail");
 

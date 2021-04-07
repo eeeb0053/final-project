@@ -19,7 +19,7 @@ import com.example.demo.uss.domain.User;
 
 import lombok.Getter;
 
-@Entity @Getter @Table(name = "analysis")
+@Entity @Getter @Table(name = "analyses")
 public class Analysis {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "anal_num") private long analNum;

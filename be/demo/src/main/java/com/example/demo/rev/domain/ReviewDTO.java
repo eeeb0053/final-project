@@ -1,5 +1,7 @@
 package com.example.demo.rev.domain;
 
+import java.util.Date;
+
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +15,7 @@ public class ReviewDTO {
 	private long userNum;
 	private String reviewTitle;
 	private String reviewContent;
-	private String regDate;
+	private Date regDate;
 	private String score;
 }
 /*

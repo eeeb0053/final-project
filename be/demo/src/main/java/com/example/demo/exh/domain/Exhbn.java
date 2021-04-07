@@ -1,6 +1,7 @@
 package com.example.demo.exh.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -28,8 +29,8 @@ public class Exhbn {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "exhbn_num") private long exhbnNum;
 	@Column(name = "exhbn_title") private String exhbnTitle;
-	@Column(name = "start_date") private String startDate;
-	@Column(name = "end_date") private String endDate;
+	@Column(name = "start_date") private Date startDate;
+	@Column(name = "end_date") private Date endDate;
 	@Column(name = "exhbn_genre") private String exhbnGenre;
 	@Column(name = "exhbn_price") private String exhbnPrice;
 	@Column(name = "exhbn_artist") private String exhbnArtist;

@@ -29,9 +29,9 @@ import lombok.Getter;
 public class User {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_num") private long userNum;
-	@Column private String userid;
-	@Column private String password;
 	@Column private String username;
+	@Column private String password;
+	@Column private String name;
 	@Column private String email;
 	@Column private String gender;
 	@Column private String birthday;
